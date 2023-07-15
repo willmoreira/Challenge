@@ -1,0 +1,138 @@
+//
+//  ListCharactersViewController.swift
+//  StoneChallenge
+//
+//  Created by William on 14/07/23.
+//
+
+import UIKit
+import SDWebImage
+
+class ListCharactersViewController: UIViewController {
+
+    private lazy var filterButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "filter"), for: .normal)
+        button.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return tableView
+    }()
+    
+    var listCharacterViewModel = ListCharactersViewModel()
+    var viewModel: ListCharactersViewModelDelegate?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        viewModel?.delegate = self
+        setupNavigationBar()
+        configureTableView()
+        listCharacterViewModel.requestApi()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupBackButton()
+    }
+    
+    private func setupBackButton() {
+        navigationItem.title = "Lista de Personagens"
+    }
+    
+    private func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(TableViewCharacterCells.self, forCellReuseIdentifier: "TableViewCharacterCells")
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: filterButton)
+    }
+    
+    @objc private func filterButtonTapped() {
+        goesToFilterCharacter()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let tableHeight = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - tableHeight {
+            //TODO: Chamando toda hora a requisição
+            loadNextPage()
+            tableView.reloadData()
+        }
+    }
+    
+    func loadNextPage() {
+        listCharacterViewModel.requestApi()
+    }
+
+}
+
+extension ListCharactersViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listCharacterViewModel.charactersList.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        tableView.deselectRow(at: indexPath, animated: true)
+        viewModel?.goesToDetailCharacter(index)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCharacterCells", for: indexPath) as! TableViewCharacterCells
+        let character = listCharacterViewModel.charactersList[indexPath.row]
+        
+        let backgroundImageView = UIImageView()
+        backgroundImageView.sd_setImage(with: URL(string: character.image))
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.clipsToBounds = true
+        backgroundImageView.alpha = 0.1
+        cell.backgroundView = backgroundImageView
+            
+        cell.setupCell(name: character.name, urlImage: character.image)
+        return cell
+    }
+}
+
+extension ListCharactersViewController: ListCharactersCoordinatorDelegate{
+    func goesToDetailCharacter(result: CharactersResponse.Result) {
+        
+    }
+    
+    func goesToDetailCharacter(index: Int) {
+        
+    }
+    
+    func goesToFilterCharacter() {
+        viewModel?.goesToFilterCharacter()
+    }
+}
+
+extension ListCharactersViewController: ListCharactersActionsDelegate {
+    func updateListCharacter() {
+        tableView.reloadData()
+    }
+}
