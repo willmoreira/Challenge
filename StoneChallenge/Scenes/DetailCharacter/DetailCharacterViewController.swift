@@ -84,7 +84,6 @@ class DetailCharacterViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         imgCustom.layer.cornerRadius = 10
         imgCustom.clipsToBounds = true
     }
@@ -122,7 +121,7 @@ class DetailCharacterViewController: UIViewController {
         imgCustom.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24).isActive = true
         imgCustom.widthAnchor.constraint(equalToConstant: 200).isActive = true
         imgCustom.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        
+
         vwContainer.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(vwContainer)
         
@@ -131,9 +130,8 @@ class DetailCharacterViewController: UIViewController {
         vwContainer.topAnchor.constraint(equalTo: imgCustom.bottomAnchor, constant: 24).isActive = true
         vwContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 48).isActive = true
         vwContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -48).isActive = true
-     
+        
         setupLabels()
-
     }
     
     private func setupLabels() {

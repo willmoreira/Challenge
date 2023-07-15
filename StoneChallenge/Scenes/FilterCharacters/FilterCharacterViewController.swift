@@ -14,6 +14,7 @@ class FilterCharacterViewController: UIViewController {
     private let vwContainer: UIView = {
         let vwContainer = UIView()
         vwContainer.translatesAutoresizingMaskIntoConstraints = false
+        vwContainer.backgroundColor = UIColor(red: 180/255.0, green: 214/255.0, blue: 91/255.0, alpha: 1.0)
         vwContainer.layer.cornerRadius = 10
         return vwContainer
     }()
@@ -46,7 +47,9 @@ class FilterCharacterViewController: UIViewController {
     
     private let imgVwBackground: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = UIImage(named: "imgBackgroundFilter")
         imageView.contentMode = .scaleAspectFill
+        imageView.alpha = 0.8
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -57,7 +60,6 @@ class FilterCharacterViewController: UIViewController {
         super.viewDidLoad()
         setupLayout()
         setupPickerView()
-        //setupFilterButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,8 +74,7 @@ class FilterCharacterViewController: UIViewController {
     }
     
     private func setupLayout() {
-        imgVwBackground.image = UIImage(named: "imgBackgroundFilter")
-        imgVwBackground.alpha = 0.8
+       
         view.backgroundColor = .white
         view.addSubview(imgVwBackground)
         
@@ -93,29 +94,20 @@ class FilterCharacterViewController: UIViewController {
         imgVwBackground.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         imgVwBackground.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        vwContainer.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(vwContainer)
+        
         vwContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         vwContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        vwContainer.heightAnchor.constraint(equalToConstant: 360).isActive = true
+        vwContainer.heightAnchor.constraint(equalToConstant: 320).isActive = true
         vwContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 48).isActive = true
         vwContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -48).isActive = true
-       
-        
-        vwContainer.backgroundColor = UIColor(red: 180/255.0, green: 214/255.0, blue: 91/255.0, alpha: 1.0)
-        vwContainer.layer.cornerRadius = 10
         
         vwContainer.addSubview(tfFilter)
+        
         tfFilter.centerXAnchor.constraint(equalTo: vwContainer.centerXAnchor).isActive = true
         tfFilter.topAnchor.constraint(equalTo: vwContainer.topAnchor, constant: 24).isActive = true
         tfFilter.leadingAnchor.constraint(equalTo: vwContainer.leadingAnchor, constant: 24).isActive = true
         tfFilter.trailingAnchor.constraint(equalTo: vwContainer.trailingAnchor, constant: -24).isActive = true
-        
-        vwContainer.addSubview(pckVwFilter)
-        pckVwFilter.centerXAnchor.constraint(equalTo: vwContainer.centerXAnchor).isActive = true
-        pckVwFilter.topAnchor.constraint(equalTo: tfFilter.bottomAnchor, constant: -50).isActive = true
-        pckVwFilter.leadingAnchor.constraint(equalTo: vwContainer.leadingAnchor, constant: 24).isActive = true
-        pckVwFilter.trailingAnchor.constraint(equalTo: vwContainer.trailingAnchor, constant: -24).isActive = true
         
         vwContainer.addSubview(btnFilter)
         btnFilter.centerXAnchor.constraint(equalTo: vwContainer.centerXAnchor).isActive = true
@@ -139,7 +131,7 @@ class FilterCharacterViewController: UIViewController {
         view.addSubview(pckVwFilter)
         
         pckVwFilter.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        pckVwFilter.topAnchor.constraint(equalTo: tfFilter.bottomAnchor, constant: 48).isActive = true
+        pckVwFilter.topAnchor.constraint(equalTo: tfFilter.bottomAnchor, constant: 0).isActive = true
         pckVwFilter.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 48).isActive = true
         pckVwFilter.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -48).isActive = true
         pckVwFilter.heightAnchor.constraint(equalToConstant: 200).isActive = true
@@ -179,9 +171,9 @@ extension FilterCharacterViewController: UIPickerViewDataSource, UIPickerViewDel
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return filterOptions[row]
     }
+    
+    
 }
-
-
 
 
 
