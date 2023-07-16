@@ -9,11 +9,15 @@ import UIKit
 
 class NotebookView: UIView {
     
+    // MARK: - Properties
+    
     private let lineSpacing: CGFloat = 32.0
     private var arrayLines: [UIView] = []
     private var emptyIndex = 0
     private let containerView = UIView()
 
+    // MARK: - Initialization
+    
     init() {
         super.init(frame: .zero)
         setupView()
@@ -22,6 +26,8 @@ class NotebookView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Private Methods
     
     private func setupView() {
         backgroundColor = .white
@@ -57,6 +63,8 @@ class NotebookView: UIView {
         }
     }
     
+    // MARK: - Public Methods
+    
     func addText(text: String) {
         guard emptyIndex < arrayLines.count else { return }
         
@@ -75,6 +83,5 @@ class NotebookView: UIView {
         ])
         emptyIndex += 1
     }
-    
 }
 

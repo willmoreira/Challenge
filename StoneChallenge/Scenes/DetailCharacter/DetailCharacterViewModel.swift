@@ -17,8 +17,9 @@ protocol DetailCharacterViewModelDelegate: AnyObject {
 
 class DetailCharacterViewModel: DetailCharacterViewModelDelegate {
     
-    weak var delegate: DetailCharacterViewModelActionsDelegate?
+    // MARK: - Properties
     
+    weak var delegate: DetailCharacterViewModelActionsDelegate?
     var detailCharacterCoordinator: DetailCharacterCoordinatorDelegate?
 
 }

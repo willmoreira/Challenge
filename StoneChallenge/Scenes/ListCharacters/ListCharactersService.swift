@@ -14,21 +14,22 @@ enum ApiError: Error {
     case invalidURL
     case noResponse
     case unathorized
-    case unexpectedStatusCode( statusCode: Int, errorMessage: String?)
-    case unkown
+    case unexpectedStatusCode(statusCode: Int, errorMessage: String?)
+    case unknown
 }
 
 class ListCharactersService {
     
+    // MARK: - Public Methods
     
     func doRequestListCharacters(page: Int, completion: @escaping (Result<CharactersResponse, ApiError>) -> Void) {
         
         let urlString = "https://rickandmortyapi.com/api/character/?page=\(page)"
-        
         let session = URLSession.shared
         
         guard let url = URL(string: urlString) else {
-            fatalError("URL inválida")
+            completion(.failure(.invalidURL))
+            return
         }
         var request = URLRequest(url: url)
         
@@ -36,7 +37,7 @@ class ListCharactersService {
         
         let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
-                completion(.failure(.unkown))
+                completion(.failure(.unknown))
                 print("Erro: \(error.localizedDescription)")
                 return
             }

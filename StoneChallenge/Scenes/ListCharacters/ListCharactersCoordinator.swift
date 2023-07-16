@@ -14,11 +14,17 @@ protocol ListCharactersCoordinatorDelegate: AnyObject {
 
 class ListCharactersCoordinator {
     
+    // MARK: - Properties
+    
     var navigationController: UINavigationController
+    
+    // MARK: - Initialization
     
     init(navigationController: UINavigationController = UINavigationController()) {
         self.navigationController = navigationController
     }
+    
+    // MARK: - Coordinator Methods
     
     func start() -> UIViewController {
         let viewController = ListCharactersViewController()
@@ -28,11 +34,12 @@ class ListCharactersCoordinator {
         viewController.viewModel = viewModel
         return viewController
     }
-    
 }
 
 extension ListCharactersCoordinator: ListCharactersCoordinatorDelegate {
-   
+    
+    // MARK: - ListCharactersCoordinatorDelegate
+    
     func goesToFilterCharacter() {
         let filterCharacterCoordinator = FilterCharacterCoordinator()
         let filterCharacterViewController = filterCharacterCoordinator.start() as! FilterCharacterViewController
@@ -50,3 +57,4 @@ extension ListCharactersCoordinator: ListCharactersCoordinatorDelegate {
         navigationController.pushViewController(detailCharacterViewController, animated: true)
     }
 }
+

@@ -8,19 +8,23 @@
 import Foundation
 
 // MARK: - Welcome
+
 struct CharactersResponse: Codable {
     let info: Info
     let results: [Result]
 }
 
 extension CharactersResponse {
+    
     // MARK: - Info
+    
     struct Info: Codable {
         let count, pages: Int
         let next, prev: String?
     }
 
     // MARK: - Result
+    
     struct Result: Codable {
         let id: Int
         let name: String
@@ -36,6 +40,7 @@ extension CharactersResponse {
     }
 
     // MARK: Enum - Gender
+    
     enum Gender: String, Codable {
         case female = "Female"
         case genderless = "Genderless"
@@ -44,11 +49,14 @@ extension CharactersResponse {
     }
 
     // MARK: - Location
+    
     struct Location: Codable {
         let name: String
         let url: String
     }
 
+    // MARK: - Status
+    
     enum Status: String, Codable {
         case alive = "Alive"
         case dead = "Dead"

@@ -15,13 +15,17 @@ protocol FilterCharacterViewModelDelegate: AnyObject {
     func filterCharacters(with option: String)
 }
 
-
 class FilterCharacterViewModel: FilterCharacterViewModelDelegate {
-  
+
+    // MARK: - Properties
+
     weak var delegate: FilterCharacterViewModelActionsDelegate?
     var filterCharacterCoordinator: FilterCharacterCoordinatorDelegate?
     
+    // MARK: - FilterCharacterViewModelDelegate
+    
     func filterCharacters(with option: String) {
-        
+
     }
 }
+

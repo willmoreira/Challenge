@@ -20,7 +20,9 @@ protocol ListCharactersViewModelDelegate: AnyObject {
 }
 
 class ListCharactersViewModel: ListCharactersViewModelDelegate {
-   
+    
+    // MARK: - Properties
+    
     weak var delegate: ListCharactersActionsDelegate?
     var listCharacterCoordinator: ListCharactersCoordinatorDelegate?
     
@@ -30,16 +32,18 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
     var charactersList: [CharactersResponse.Result] = []
     var isLoadNextPageInProgress = false
     
+    // MARK: - Initialization
+    
     init(service: ListCharactersService = ListCharactersService()) {
         self.service = service
     }
     
+    // MARK: - Public Methods
+    
     func requestCharacterList() {
-        self.delegate?.updateListCharacter()
         guard page <= totalPages, !isLoadNextPageInProgress else { return }
         isLoadNextPageInProgress = true
         service.doRequestListCharacters(page: page) { result in
-
             switch result {
             case let .success(charactersResponse):
                 self.page += 1
@@ -68,5 +72,4 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
     func getCharacter(index: Int) -> CharactersResponse.Result {
         return charactersList[index]
     }
-    
 }

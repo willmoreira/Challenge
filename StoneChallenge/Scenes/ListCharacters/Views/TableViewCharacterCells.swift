@@ -8,41 +8,59 @@
 import UIKit
 import SDWebImage
 
-import UIKit
-
 class TableViewCharacterCells: UITableViewCell {
+    
+    // MARK: - Properties
     
     let nameLabel = UILabel()
     let customImageView = UIImageView()
     
+    // MARK: - Initialization
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-    
-        accessoryType = .disclosureIndicator
-        selectionStyle = .none
-        
-        contentView.addSubview(customImageView)
-        contentView.addSubview(nameLabel)
-        
-        nameLabel.numberOfLines = 2
-      
-        customImageView.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        customImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        customImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        customImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        customImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        
-        nameLabel.leadingAnchor.constraint(equalTo: customImageView.trailingAnchor, constant: 16).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
-        nameLabel.centerYAnchor.constraint(equalTo: customImageView.centerYAnchor).isActive = true
+        setupLayoutCell()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Private Methods
+
+    private func setupLayoutCell() {
+        accessoryType = .disclosureIndicator
+        selectionStyle = .none
+        
+        contentView.addSubview(customImageView)
+        customImageView.translatesAutoresizingMaskIntoConstraints = false
+
+        contentView.addSubview(nameLabel)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+    
+        NSLayoutConstraint.activate([
+            customImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            customImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            customImageView.widthAnchor.constraint(equalToConstant: 80),
+            customImageView.heightAnchor.constraint(equalToConstant: 80),
+            
+            nameLabel.centerYAnchor.constraint(equalTo: customImageView.centerYAnchor),
+            nameLabel.leadingAnchor.constraint(equalTo: customImageView.trailingAnchor, constant: 16),
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+        ])
+    }
+    
+    private func setupBackground(url: String) {
+        let backgroundImageView = UIImageView()
+        backgroundImageView.sd_setImage(with: URL(string: url))
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.clipsToBounds = true
+        backgroundImageView.alpha = 0.1
+        backgroundView = backgroundImageView
+    }
+    
+    // MARK: - Public Methods
     
     func setupCell(name: String, urlImage: String) {
         setupBackground(url: urlImage)
@@ -51,15 +69,5 @@ class TableViewCharacterCells: UITableViewCell {
         customImageView.layer.masksToBounds = true
         customImageView.layer.cornerRadius = 40
         customImageView.layoutIfNeeded()
-    }
-    
-    private func setupBackground(url: String) {
-        
-        let backgroundImageView = UIImageView()
-        backgroundImageView.sd_setImage(with: URL(string: url))
-        backgroundImageView.contentMode = .scaleAspectFill
-        backgroundImageView.clipsToBounds = true
-        backgroundImageView.alpha = 0.1
-        self.backgroundView = backgroundImageView
     }
 }

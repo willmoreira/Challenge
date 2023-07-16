@@ -10,6 +10,8 @@ import SDWebImage
 
 class ListCharactersViewController: UIViewController {
 
+    // MARK: - Properties
+    
     private lazy var filterButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "filter"), for: .normal)
@@ -25,6 +27,8 @@ class ListCharactersViewController: UIViewController {
     
     var viewModel: ListCharactersViewModelDelegate?
     
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -38,6 +42,8 @@ class ListCharactersViewController: UIViewController {
         setupBackButton()
     }
     
+    // MARK: - Private Methods
+    
     private func setupBackButton() {
         navigationItem.title = "Lista de Personagens"
     }
@@ -46,6 +52,7 @@ class ListCharactersViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TableViewCharacterCells.self, forCellReuseIdentifier: "TableViewCharacterCells")
+        
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -61,9 +68,13 @@ class ListCharactersViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: filterButton)
     }
     
+    // MARK: - Actions
+    
     @objc private func filterButtonTapped() {
         goesToFilterCharacter()
     }
+    
+    // MARK: - Scroll View Delegate
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
@@ -76,13 +87,17 @@ class ListCharactersViewController: UIViewController {
         }
     }
     
+    // MARK: - Load Next Page
+    
     func loadNextPage() {
         viewModel?.requestCharacterList()
     }
-
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
+
 extension ListCharactersViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.characterListSize() ?? 0
     }
@@ -106,13 +121,12 @@ extension ListCharactersViewController: UITableViewDelegate, UITableViewDataSour
     }
 }
 
+// MARK: - ListCharactersCoordinatorDelegate
+
 extension ListCharactersViewController: ListCharactersCoordinatorDelegate{
-    func goesToDetailCharacter(result: CharactersResponse.Result) {
-        
-    }
     
-    func goesToDetailCharacter(index: Int) {
-        
+    func goesToDetailCharacter(result: CharactersResponse.Result) {
+        //TODO: Deixa aqui mesmo?
     }
     
     func goesToFilterCharacter() {
@@ -120,8 +134,12 @@ extension ListCharactersViewController: ListCharactersCoordinatorDelegate{
     }
 }
 
+// MARK: - ListCharactersActionsDelegate
+
 extension ListCharactersViewController: ListCharactersActionsDelegate {
+    
     func updateListCharacter() {
         tableView.reloadData()
     }
 }
+
