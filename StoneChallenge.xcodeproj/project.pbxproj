@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DAFCB692A635D8F00DAAE04 /* NotebookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB682A635D8F00DAAE04 /* NotebookView.swift */; };
 		3DB50C412A61CE30005C48F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB50C402A61CE30005C48F8 /* AppDelegate.swift */; };
 		3DB50C432A61CE30005C48F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB50C422A61CE30005C48F8 /* SceneDelegate.swift */; };
 		3DB50C4A2A61CE33005C48F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB50C492A61CE33005C48F8 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3DAFCB682A635D8F00DAAE04 /* NotebookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookView.swift; sourceTree = "<group>"; };
 		3DB50C3D2A61CE30005C48F8 /* StoneChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoneChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB50C402A61CE30005C48F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DB50C422A61CE30005C48F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DAFCB672A635D6100DAAE04 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DAFCB682A635D8F00DAAE04 /* NotebookView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3DB50C342A61CE30005C48F8 = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +204,7 @@
 		3DE0DF592A62309A00BA7473 /* DetailCharacter */ = {
 			isa = PBXGroup;
 			children = (
+				3DAFCB672A635D6100DAAE04 /* Views */,
 				3DE0DF5B2A6230F800BA7473 /* DetailCharacterCoordinator.swift */,
 				3DE0DF5D2A62310A00BA7473 /* DetailCharacterService.swift */,
 				3DE0DF5F2A62312000BA7473 /* DetailCharacterViewController.swift */,
@@ -362,6 +373,7 @@
 				3DE0DF602A62312000BA7473 /* DetailCharacterViewController.swift in Sources */,
 				3DE0DF5E2A62310A00BA7473 /* DetailCharacterService.swift in Sources */,
 				3DE0DF5C2A6230F800BA7473 /* DetailCharacterCoordinator.swift in Sources */,
+				3DAFCB692A635D8F00DAAE04 /* NotebookView.swift in Sources */,
 				3DE0DF522A61DC2D00BA7473 /* TableViewCharacterCells.swift in Sources */,
 				3DE0DF642A62319000BA7473 /* FilterCharacterCoordinator.swift in Sources */,
 				3DB50C432A61CE30005C48F8 /* SceneDelegate.swift in Sources */,

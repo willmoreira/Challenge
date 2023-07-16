@@ -12,9 +12,11 @@ protocol ListCharactersActionsDelegate: AnyObject {
 }
 
 protocol ListCharactersViewModelDelegate: AnyObject {
-    var delegate: ListCharactersActionsDelegate? { get set }
     func goesToFilterCharacter()
     func goesToDetailCharacter(_ index: Int)
+    func requestCharacterList()
+    func characterListSize() -> Int
+    func getCharacter(index: Int) -> CharactersResponse.Result
 }
 
 class ListCharactersViewModel: ListCharactersViewModelDelegate {
@@ -26,15 +28,16 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
     var page: Int = 1
     var totalPages: Int = 100
     var charactersList: [CharactersResponse.Result] = []
+    var isLoadNextPageInProgress = false
     
     init(service: ListCharactersService = ListCharactersService()) {
         self.service = service
     }
     
-    func requestApi() {
-        
-        guard page <= totalPages else { return }
-
+    func requestCharacterList() {
+        self.delegate?.updateListCharacter()
+        guard page <= totalPages, !isLoadNextPageInProgress else { return }
+        isLoadNextPageInProgress = true
         service.doRequestListCharacters(page: page) { result in
 
             switch result {
@@ -43,7 +46,7 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
                 self.totalPages = charactersResponse.info.pages
                 self.charactersList.append(contentsOf: charactersResponse.results)
                 self.delegate?.updateListCharacter()
-    
+                self.isLoadNextPageInProgress = false
             case .failure:
                 break
             }
@@ -55,14 +58,15 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
     }
     
     func goesToDetailCharacter(_ index: Int) {
-        //TODO: validar essa lista
-        if charactersList.isEmpty {
-            // A lista de personagens está vazia, faz uma chamada à API para carregar os dados
-            requestApi()
-        } else {
-            // A lista de personagens já está carregada, passa para a camada do listCharacterCoordinator
-            listCharacterCoordinator?.goesToDetailCharacter(result: charactersList[index])
-        }
+        listCharacterCoordinator?.goesToDetailCharacter(result: charactersList[index])
     }
-   
+    
+    func characterListSize() -> Int {
+        return charactersList.count
+    }
+    
+    func getCharacter(index: Int) -> CharactersResponse.Result {
+        return charactersList[index]
+    }
+    
 }

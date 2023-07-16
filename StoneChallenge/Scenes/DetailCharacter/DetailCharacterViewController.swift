@@ -25,7 +25,6 @@ class DetailCharacterViewController: UIViewController {
     
     var lblName: UILabel = {
         let lblName = UILabel()
-        lblName.font = UIFont.systemFont(ofSize: 24)
         lblName.textColor = UIColor(red: 38/255.0, green: 54/255.0, blue: 60/255.0, alpha: 1.0)
         lblName.textAlignment = .center
         lblName.numberOfLines = 2
@@ -71,6 +70,13 @@ class DetailCharacterViewController: UIViewController {
         return view
     }()
     
+    private let notebookView: NotebookView = {
+        let notebookView = NotebookView()
+        notebookView.frame = CGRect(x: 0, y: 0, width: 250, height: 300)
+        return notebookView
+    }()
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -114,6 +120,14 @@ class DetailCharacterViewController: UIViewController {
         imgBackground.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         imgBackground.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
+        notebookView.translatesAutoresizingMaskIntoConstraints = false
+        vwContainer.addSubview(notebookView)
+
+        notebookView.topAnchor.constraint(equalTo: vwContainer.topAnchor).isActive = true
+        notebookView.leadingAnchor.constraint(equalTo: vwContainer.leadingAnchor).isActive = true
+        notebookView.trailingAnchor.constraint(equalTo: vwContainer.trailingAnchor).isActive = true
+        notebookView.bottomAnchor.constraint(equalTo: vwContainer.bottomAnchor).isActive = true
+    
         imgCustom.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imgCustom)
 
@@ -135,40 +149,14 @@ class DetailCharacterViewController: UIViewController {
     }
     
     private func setupLabels() {
-        lblName.text = character?.name
-        lblSpecies.text = character?.species
-        lblGender.text = character?.gender.rawValue
-        lblType.text = character?.type
-        
-        lblName.translatesAutoresizingMaskIntoConstraints = false
-        lblSpecies.translatesAutoresizingMaskIntoConstraints = false
-        lblGender.translatesAutoresizingMaskIntoConstraints = false
-        lblType.translatesAutoresizingMaskIntoConstraints = false
-        
-        vwContainer.addSubview(lblName)
-        vwContainer.addSubview(lblSpecies)
-        vwContainer.addSubview(lblGender)
-        vwContainer.addSubview(lblType)
-        
-        lblName.topAnchor.constraint(equalTo: vwContainer.topAnchor, constant: 16).isActive = true
-        lblName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        lblName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
-     
-        lblSpecies.topAnchor.constraint(equalTo: lblName.bottomAnchor, constant: 24).isActive = true
-        lblSpecies.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        lblSpecies.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
-        
-        lblGender.topAnchor.constraint(equalTo: lblSpecies.bottomAnchor, constant: 16).isActive = true
-        lblGender.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        lblGender.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        lblGender.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
-       
-        lblType.topAnchor.constraint(equalTo: lblGender.bottomAnchor, constant: 16).isActive = true
-        lblType.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        lblType.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-        lblType.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
-        
-        view.layoutIfNeeded()
+        if let character = character {
+            notebookView.addText(text: "Nome: " + character.name)
+            notebookView.addText(text: "Espécie: " + character.species)
+            //notebookView.addText(text: "Genero: " + character.gender.rawValue)
+            notebookView.addText(text: "Situação: " + character.status.rawValue)
+            notebookView.addText(text: "Nasceu: " + character.origin.name)
+            notebookView.addText(text: "Vive em: " + character.location.name)
+        }
     }
     
     private func updateFilm() {
@@ -180,5 +168,3 @@ class DetailCharacterViewController: UIViewController {
         lblSpecies.text = character?.species
     }
 }
-
-

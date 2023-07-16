@@ -24,6 +24,7 @@ class ListCharactersCoordinator {
         let viewController = ListCharactersViewController()
         let viewModel = ListCharactersViewModel()
         viewModel.listCharacterCoordinator = self
+        viewModel.delegate = viewController
         viewController.viewModel = viewModel
         return viewController
     }
@@ -32,7 +33,6 @@ class ListCharactersCoordinator {
 
 extension ListCharactersCoordinator: ListCharactersCoordinatorDelegate {
    
-    
     func goesToFilterCharacter() {
         let filterCharacterCoordinator = FilterCharacterCoordinator()
         let filterCharacterViewController = filterCharacterCoordinator.start() as! FilterCharacterViewController

@@ -19,6 +19,7 @@ class TableViewCharacterCells: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     
         accessoryType = .disclosureIndicator
+        selectionStyle = .none
         
         contentView.addSubview(customImageView)
         contentView.addSubview(nameLabel)
@@ -39,18 +40,26 @@ class TableViewCharacterCells: UITableViewCell {
         nameLabel.centerYAnchor.constraint(equalTo: customImageView.centerYAnchor).isActive = true
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        customImageView.layer.masksToBounds = true
-        customImageView.layer.cornerRadius = customImageView.frame.size.width / 2
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func setupCell(name: String, urlImage: String) {
+        setupBackground(url: urlImage)
         nameLabel.text = name
         customImageView.sd_setImage(with: URL(string: urlImage))
+        customImageView.layer.masksToBounds = true
+        customImageView.layer.cornerRadius = 40
+        customImageView.layoutIfNeeded()
+    }
+    
+    private func setupBackground(url: String) {
+        
+        let backgroundImageView = UIImageView()
+        backgroundImageView.sd_setImage(with: URL(string: url))
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.clipsToBounds = true
+        backgroundImageView.alpha = 0.1
+        self.backgroundView = backgroundImageView
     }
 }

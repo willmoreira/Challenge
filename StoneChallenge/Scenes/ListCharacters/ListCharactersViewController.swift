@@ -23,17 +23,14 @@ class ListCharactersViewController: UIViewController {
         return tableView
     }()
     
-    var listCharacterViewModel = ListCharactersViewModel()
     var viewModel: ListCharactersViewModelDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        viewModel?.delegate = self
         setupNavigationBar()
         configureTableView()
-        listCharacterViewModel.requestApi()
-        
+        viewModel?.requestCharacterList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,21 +71,20 @@ class ListCharactersViewController: UIViewController {
         let tableHeight = scrollView.frame.size.height
         
         if offsetY > contentHeight - tableHeight {
-            //TODO: Chamando toda hora a requisição
             loadNextPage()
             tableView.reloadData()
         }
     }
     
     func loadNextPage() {
-        listCharacterViewModel.requestApi()
+        viewModel?.requestCharacterList()
     }
 
 }
 
 extension ListCharactersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listCharacterViewModel.charactersList.count
+        return viewModel?.characterListSize() ?? 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -102,17 +98,10 @@ extension ListCharactersViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCharacterCells", for: indexPath) as! TableViewCharacterCells
-        let character = listCharacterViewModel.charactersList[indexPath.row]
-        
-        let backgroundImageView = UIImageView()
-        backgroundImageView.sd_setImage(with: URL(string: character.image))
-        backgroundImageView.contentMode = .scaleAspectFill
-        backgroundImageView.clipsToBounds = true
-        backgroundImageView.alpha = 0.1
-        cell.backgroundView = backgroundImageView
-            
-        cell.setupCell(name: character.name, urlImage: character.image)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCharacterCells", for: indexPath) as? TableViewCharacterCells else { return UITableViewCell() }
+        if let character = viewModel?.getCharacter(index: indexPath.row) {
+            cell.setupCell(name: character.name, urlImage: character.image)
+        }
         return cell
     }
 }
