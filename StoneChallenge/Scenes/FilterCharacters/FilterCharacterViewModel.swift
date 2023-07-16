@@ -8,11 +8,11 @@
 import Foundation
 
 protocol FilterCharacterViewModelActionsDelegate: AnyObject {
-
+    func updateListCharacter(name: String, status: String)
 }
 
 protocol FilterCharacterViewModelDelegate: AnyObject {
-    func filterCharacters(with option: String)
+    func filterCharacters(name: String, status: String)
 }
 
 class FilterCharacterViewModel: FilterCharacterViewModelDelegate {
@@ -22,10 +22,22 @@ class FilterCharacterViewModel: FilterCharacterViewModelDelegate {
     weak var delegate: FilterCharacterViewModelActionsDelegate?
     var filterCharacterCoordinator: FilterCharacterCoordinatorDelegate?
     
-    // MARK: - FilterCharacterViewModelDelegate
+    let service: FilterCharacterService
+    var page: Int = 1
+    var totalPages: Int = 100
+    var charactersList: [CharactersResponse.Result] = []
+    var isLoadNextPageInProgress = false
     
-    func filterCharacters(with option: String) {
+    // MARK: - Initialization
 
+    init(service: FilterCharacterService = FilterCharacterService()) {
+        self.service = service
+    }
+    
+    // MARK: - Public Methods
+    
+    func filterCharacters(name: String, status: String) {
+        delegate?.updateListCharacter(name: name, status: status)
     }
 }
 

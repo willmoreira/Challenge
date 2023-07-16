@@ -97,7 +97,6 @@ class ListCharactersViewController: UIViewController {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension ListCharactersViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.characterListSize() ?? 0
     }
@@ -124,7 +123,6 @@ extension ListCharactersViewController: UITableViewDelegate, UITableViewDataSour
 // MARK: - ListCharactersCoordinatorDelegate
 
 extension ListCharactersViewController: ListCharactersCoordinatorDelegate{
-    
     func goesToDetailCharacter(result: CharactersResponse.Result) {
         //TODO: Deixa aqui mesmo?
     }
@@ -137,7 +135,6 @@ extension ListCharactersViewController: ListCharactersCoordinatorDelegate{
 // MARK: - ListCharactersActionsDelegate
 
 extension ListCharactersViewController: ListCharactersActionsDelegate {
-    
     func updateListCharacter() {
         tableView.reloadData()
     }

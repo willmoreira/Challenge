@@ -21,5 +21,4 @@ class DetailCharacterViewModel: DetailCharacterViewModelDelegate {
     
     weak var delegate: DetailCharacterViewModelActionsDelegate?
     var detailCharacterCoordinator: DetailCharacterCoordinatorDelegate?
-
 }

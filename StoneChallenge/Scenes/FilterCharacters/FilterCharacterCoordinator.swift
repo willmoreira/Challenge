@@ -8,7 +8,7 @@
 import UIKit
 
 protocol FilterCharacterCoordinatorDelegate: AnyObject {
-    
+
 }
 
 class FilterCharacterCoordinator {
@@ -35,5 +35,5 @@ class FilterCharacterCoordinator {
 }
 
 extension FilterCharacterCoordinator: FilterCharacterCoordinatorDelegate {
-    
+  
 }

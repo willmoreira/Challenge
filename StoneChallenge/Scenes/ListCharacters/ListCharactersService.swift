@@ -7,24 +7,16 @@
 
 import UIKit
 
-enum ApiError: Error {
-    case couldNotConnectToServer
-    case noInternet
-    case decode
-    case invalidURL
-    case noResponse
-    case unathorized
-    case unexpectedStatusCode(statusCode: Int, errorMessage: String?)
-    case unknown
-}
-
 class ListCharactersService {
     
     // MARK: - Public Methods
     
-    func doRequestListCharacters(page: Int, completion: @escaping (Result<CharactersResponse, ApiError>) -> Void) {
+    func doRequestListCharacters(page: Int, name: String? = nil, status: String? = nil, completion: @escaping (Result<CharactersResponse, ApiError>) -> Void) {
         
-        let urlString = "https://rickandmortyapi.com/api/character/?page=\(page)"
+        let nameValid = name ?? ""
+        let statusValid = status ?? ""
+
+        let urlString = "https://rickandmortyapi.com/api/character/?page=\(page)&name=\(nameValid)&status=\(statusValid)"
         let session = URLSession.shared
         
         guard let url = URL(string: urlString) else {

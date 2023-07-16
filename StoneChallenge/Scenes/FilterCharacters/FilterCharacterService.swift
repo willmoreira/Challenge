@@ -5,8 +5,7 @@
 //  Created by William on 14/07/23.
 //
 
-import Foundation
-
+import UIKit
 
 class FilterCharacterService {
     

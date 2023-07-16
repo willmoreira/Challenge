@@ -12,7 +12,7 @@ class FilterCharacterViewController: UIViewController {
     // MARK: - Properties
 
     var viewModel: FilterCharacterViewModelDelegate?
-    
+
     private let vwContainer: UIView = {
         let vwContainer = UIView()
         vwContainer.backgroundColor = UIColor(red: 180/255.0, green: 214/255.0, blue: 91/255.0, alpha: 1.0)
@@ -73,8 +73,8 @@ class FilterCharacterViewController: UIViewController {
         btnFilter.clipsToBounds = true
     }
     
-    // MARK: - Setup
-    
+    // MARK: - Private Methods
+  
     private func setupLayout() {
        
         view.backgroundColor = .white
@@ -145,16 +145,13 @@ class FilterCharacterViewController: UIViewController {
         let selectedOptionIndex = pckVwFilter.selectedRow(inComponent: 0)
         let selectedOption = filterOptions[selectedOptionIndex]
         
-        viewModel?.filterCharacters(with: selectedOption)
-        
-        navigationController?.popViewController(animated: true)
+        viewModel?.filterCharacters(name: tfFilter.text! , status: selectedOption)
     }
 }
 
 // MARK: - PickerViewDelegate
 
 extension FilterCharacterViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -167,3 +164,11 @@ extension FilterCharacterViewController: UIPickerViewDataSource, UIPickerViewDel
         return filterOptions[row]
     }
 }
+
+extension FilterCharacterViewController: FilterCharacterViewModelActionsDelegate {
+    func updateListCharacter(name: String, status: String) {
+        //TODO: Enviar daqui pra ListCharacterViewController
+        navigationController?.popViewController(animated: true)
+    }
+}
+

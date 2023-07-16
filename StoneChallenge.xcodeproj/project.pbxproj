@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3DAFCB692A635D8F00DAAE04 /* NotebookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB682A635D8F00DAAE04 /* NotebookView.swift */; };
+		3DAFCB6B2A645A9F00DAAE04 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB6A2A645A9F00DAAE04 /* ApiError.swift */; };
 		3DB50C412A61CE30005C48F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB50C402A61CE30005C48F8 /* AppDelegate.swift */; };
 		3DB50C432A61CE30005C48F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB50C422A61CE30005C48F8 /* SceneDelegate.swift */; };
 		3DB50C4A2A61CE33005C48F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB50C492A61CE33005C48F8 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		3DAFCB682A635D8F00DAAE04 /* NotebookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookView.swift; sourceTree = "<group>"; };
+		3DAFCB6A2A645A9F00DAAE04 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		3DB50C3D2A61CE30005C48F8 /* StoneChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoneChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB50C402A61CE30005C48F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DB50C422A61CE30005C48F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				3DE0DF542A61E30B00BA7473 /* CharactersResponse.swift */,
+				3DAFCB6A2A645A9F00DAAE04 /* ApiError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,11 +207,11 @@
 		3DE0DF592A62309A00BA7473 /* DetailCharacter */ = {
 			isa = PBXGroup;
 			children = (
-				3DAFCB672A635D6100DAAE04 /* Views */,
 				3DE0DF5B2A6230F800BA7473 /* DetailCharacterCoordinator.swift */,
 				3DE0DF5D2A62310A00BA7473 /* DetailCharacterService.swift */,
 				3DE0DF5F2A62312000BA7473 /* DetailCharacterViewController.swift */,
 				3DE0DF612A62313700BA7473 /* DetailCharacterViewModel.swift */,
+				3DAFCB672A635D6100DAAE04 /* Views */,
 			);
 			path = DetailCharacter;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				3DE0DF682A6231B100BA7473 /* FilterCharacterService.swift in Sources */,
 				3DE0DF552A61E30B00BA7473 /* CharactersResponse.swift in Sources */,
 				3DB50C772A61D0F3005C48F8 /* ListCharactersService.swift in Sources */,
+				3DAFCB6B2A645A9F00DAAE04 /* ApiError.swift in Sources */,
 				3DB50C412A61CE30005C48F8 /* AppDelegate.swift in Sources */,
 				3DB50C752A61D0DA005C48F8 /* ListCharactersViewModel.swift in Sources */,
 				3DE0DF662A6231A000BA7473 /* FilterCharacterViewController.swift in Sources */,
