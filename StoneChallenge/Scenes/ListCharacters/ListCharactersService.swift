@@ -7,7 +7,11 @@
 
 import UIKit
 
-class ListCharactersService {
+protocol ListCharactersServiceProtocol {
+    func doRequestListCharacters(page: Int, name: String?, status: String?, completion: @escaping (Result<CharactersResponse, ApiError>) -> Void)
+}
+
+class ListCharactersService: ListCharactersServiceProtocol {
     
     // MARK: - Public Methods
     

@@ -26,7 +26,7 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
     
     weak var viewController: ListCharactersViewControllerDelegate?
     var coordinator: ListCharactersCoordinatorDelegate?
-    let service: ListCharactersService
+    let service: ListCharactersServiceProtocol
     
     var name: String?
     var status: String?
@@ -37,7 +37,7 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
     
     // MARK: - Initialization
     
-    init(service: ListCharactersService = ListCharactersService()) {
+    init(service: ListCharactersServiceProtocol = ListCharactersService()) {
         self.service = service
     }
     

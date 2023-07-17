@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3DAFCB692A635D8F00DAAE04 /* NotebookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB682A635D8F00DAAE04 /* NotebookView.swift */; };
 		3DAFCB6B2A645A9F00DAAE04 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB6A2A645A9F00DAAE04 /* ApiError.swift */; };
+		3DAFCB722A658FB600DAAE04 /* ListCharactersViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB712A658FB600DAAE04 /* ListCharactersViewControllerTest.swift */; };
+		3DAFCB752A6590F600DAAE04 /* ListCharactersServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB742A6590F600DAAE04 /* ListCharactersServiceSpy.swift */; };
 		3DB50C412A61CE30005C48F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB50C402A61CE30005C48F8 /* AppDelegate.swift */; };
 		3DB50C432A61CE30005C48F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB50C422A61CE30005C48F8 /* SceneDelegate.swift */; };
 		3DB50C4A2A61CE33005C48F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB50C492A61CE33005C48F8 /* Assets.xcassets */; };
@@ -53,6 +55,9 @@
 /* Begin PBXFileReference section */
 		3DAFCB682A635D8F00DAAE04 /* NotebookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookView.swift; sourceTree = "<group>"; };
 		3DAFCB6A2A645A9F00DAAE04 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		3DAFCB712A658FB600DAAE04 /* ListCharactersViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersViewControllerTest.swift; sourceTree = "<group>"; };
+		3DAFCB742A6590F600DAAE04 /* ListCharactersServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersServiceSpy.swift; sourceTree = "<group>"; };
+		3DAFCB792A6597CC00DAAE04 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3DB50C3D2A61CE30005C48F8 /* StoneChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoneChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB50C402A61CE30005C48F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DB50C422A61CE30005C48F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,9 +119,27 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3DAFCB702A658F6B00DAAE04 /* ListCharactersTests */ = {
+			isa = PBXGroup;
+			children = (
+				3DAFCB732A6590CD00DAAE04 /* Mocks */,
+				3DAFCB712A658FB600DAAE04 /* ListCharactersViewControllerTest.swift */,
+			);
+			path = ListCharactersTests;
+			sourceTree = "<group>";
+		};
+		3DAFCB732A6590CD00DAAE04 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				3DAFCB742A6590F600DAAE04 /* ListCharactersServiceSpy.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		3DB50C342A61CE30005C48F8 = {
 			isa = PBXGroup;
 			children = (
+				3DAFCB792A6597CC00DAAE04 /* README.md */,
 				3DB50C3F2A61CE30005C48F8 /* StoneChallenge */,
 				3DB50C562A61CE33005C48F8 /* StoneChallengeTests */,
 				3DB50C602A61CE33005C48F8 /* StoneChallengeUITests */,
@@ -151,6 +174,7 @@
 		3DB50C562A61CE33005C48F8 /* StoneChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				3DAFCB702A658F6B00DAAE04 /* ListCharactersTests */,
 				3DB50C572A61CE33005C48F8 /* StoneChallengeTests.swift */,
 			);
 			path = StoneChallengeTests;
@@ -388,6 +412,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DAFCB722A658FB600DAAE04 /* ListCharactersViewControllerTest.swift in Sources */,
+				3DAFCB752A6590F600DAAE04 /* ListCharactersServiceSpy.swift in Sources */,
 				3DB50C582A61CE33005C48F8 /* StoneChallengeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
