@@ -29,8 +29,8 @@ class ListCharactersCoordinator {
     func start() -> UIViewController {
         let viewController = ListCharactersViewController()
         let viewModel = ListCharactersViewModel()
-        viewModel.listCharacterCoordinator = self
-        viewModel.delegate = viewController
+        viewModel.coordinator = self
+        viewModel.viewController = viewController
         viewController.viewModel = viewModel
         return viewController
     }
@@ -39,10 +39,12 @@ class ListCharactersCoordinator {
 extension ListCharactersCoordinator: ListCharactersCoordinatorDelegate {
     
     // MARK: - ListCharactersCoordinatorDelegate
-    
+
     func goesToFilterCharacter() {
         let filterCharacterCoordinator = FilterCharacterCoordinator()
-        let filterCharacterViewController = filterCharacterCoordinator.start() as! FilterCharacterViewController
+        guard let filterCharacterViewController = filterCharacterCoordinator.start() as? FilterCharacterViewController else { return }
+        guard let navigationControllerLast = navigationController.viewControllers.last as? FilterCharacterViewModelActionsDelegate else { return }
+        filterCharacterViewController.viewModel?.passDelegate(delegate: navigationControllerLast)
         let backButton = UIBarButtonItem(title: "Voltar", style: .plain, target: nil, action: nil)
         navigationController.navigationItem.backBarButtonItem = backButton
         navigationController.pushViewController(filterCharacterViewController, animated: true)
@@ -50,7 +52,7 @@ extension ListCharactersCoordinator: ListCharactersCoordinatorDelegate {
     
     func goesToDetailCharacter(result: CharactersResponse.Result) {
         let detailCharacterCoordinator = DetailCharacterCoordinator()
-        let detailCharacterViewController = detailCharacterCoordinator.start() as! DetailCharacterViewController
+        guard let detailCharacterViewController = detailCharacterCoordinator.start() as? DetailCharacterViewController else { return }
         detailCharacterViewController.character = result
         let backButton = UIBarButtonItem(title: "Voltar", style: .plain, target: nil, action: nil)
         navigationController.navigationItem.backBarButtonItem = backButton

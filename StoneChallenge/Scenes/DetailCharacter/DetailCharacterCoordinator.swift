@@ -28,7 +28,7 @@ class DetailCharacterCoordinator {
     func start() -> UIViewController {
         let viewController = DetailCharacterViewController()
         let viewModel = DetailCharacterViewModel()
-        viewModel.detailCharacterCoordinator = self
+        viewModel.coordinator = self
         viewController.viewModel = viewModel
         return viewController
     }

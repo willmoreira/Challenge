@@ -10,8 +10,9 @@ import Foundation
 // MARK: - Welcome
 
 struct CharactersResponse: Codable {
-    let info: Info
-    let results: [Result]
+    let info: Info?
+    let results: [Result]?
+    let error: String?
 }
 
 extension CharactersResponse {

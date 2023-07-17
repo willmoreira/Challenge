@@ -144,8 +144,9 @@ class FilterCharacterViewController: UIViewController {
     @objc private func filterButtonTapped() {
         let selectedOptionIndex = pckVwFilter.selectedRow(inComponent: 0)
         let selectedOption = filterOptions[selectedOptionIndex]
-        
-        viewModel?.filterCharacters(name: tfFilter.text! , status: selectedOption)
+        let filterText = tfFilter.text ?? ""
+        navigationController?.popViewController(animated: true)
+        viewModel?.filterCharacters(name: filterText , status: selectedOption)
     }
 }
 
@@ -167,7 +168,6 @@ extension FilterCharacterViewController: UIPickerViewDataSource, UIPickerViewDel
 
 extension FilterCharacterViewController: FilterCharacterViewModelActionsDelegate {
     func updateListCharacter(name: String, status: String) {
-        //TODO: Enviar daqui pra ListCharacterViewController
         navigationController?.popViewController(animated: true)
     }
 }

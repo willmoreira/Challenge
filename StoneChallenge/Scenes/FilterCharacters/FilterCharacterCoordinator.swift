@@ -16,7 +16,7 @@ class FilterCharacterCoordinator {
     // MARK: - Properties
     
     var navigationController: UINavigationController
-    
+        
     // MARK: - Initialization
     
     init(navigationController: UINavigationController = UINavigationController()) {
@@ -28,10 +28,11 @@ class FilterCharacterCoordinator {
     func start() -> UIViewController {
         let viewController = FilterCharacterViewController()
         let viewModel = FilterCharacterViewModel()
-        viewModel.filterCharacterCoordinator = self
+        viewModel.coordinator = self
         viewController.viewModel = viewModel
         return viewController
     }
+    
 }
 
 extension FilterCharacterCoordinator: FilterCharacterCoordinatorDelegate {

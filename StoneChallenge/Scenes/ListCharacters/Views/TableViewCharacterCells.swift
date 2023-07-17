@@ -45,9 +45,8 @@ class TableViewCharacterCells: UITableViewCell {
             customImageView.heightAnchor.constraint(equalToConstant: 80),
             
             nameLabel.centerYAnchor.constraint(equalTo: customImageView.centerYAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: customImageView.trailingAnchor, constant: 16),
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            nameLabel.leadingAnchor.constraint(equalTo: customImageView.trailingAnchor, constant: 24),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
         ])
     }
     
@@ -56,7 +55,7 @@ class TableViewCharacterCells: UITableViewCell {
         backgroundImageView.sd_setImage(with: URL(string: url))
         backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.clipsToBounds = true
-        backgroundImageView.alpha = 0.1
+        backgroundImageView.alpha = 0.15
         backgroundView = backgroundImageView
     }
     

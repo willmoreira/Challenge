@@ -13,6 +13,7 @@ protocol FilterCharacterViewModelActionsDelegate: AnyObject {
 
 protocol FilterCharacterViewModelDelegate: AnyObject {
     func filterCharacters(name: String, status: String)
+    func passDelegate(delegate: FilterCharacterViewModelActionsDelegate)
 }
 
 class FilterCharacterViewModel: FilterCharacterViewModelDelegate {
@@ -20,14 +21,9 @@ class FilterCharacterViewModel: FilterCharacterViewModelDelegate {
     // MARK: - Properties
 
     weak var delegate: FilterCharacterViewModelActionsDelegate?
-    var filterCharacterCoordinator: FilterCharacterCoordinatorDelegate?
-    
+    var coordinator: FilterCharacterCoordinatorDelegate?
     let service: FilterCharacterService
-    var page: Int = 1
-    var totalPages: Int = 100
-    var charactersList: [CharactersResponse.Result] = []
-    var isLoadNextPageInProgress = false
-    
+  
     // MARK: - Initialization
 
     init(service: FilterCharacterService = FilterCharacterService()) {
@@ -38,6 +34,10 @@ class FilterCharacterViewModel: FilterCharacterViewModelDelegate {
     
     func filterCharacters(name: String, status: String) {
         delegate?.updateListCharacter(name: name, status: status)
+    }
+    
+    func passDelegate(delegate: FilterCharacterViewModelActionsDelegate) {
+        self.delegate = delegate
     }
 }
 
