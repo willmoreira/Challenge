@@ -141,6 +141,7 @@ class ListCharactersViewController: UIViewController {
     
     @objc private func refreshTableView() {
         viewModel?.requestCharacterListInitial(name: "", status: "")
+        btnReloadCharacters.isHidden = true
         refreshControl.endRefreshing()
     }
     
