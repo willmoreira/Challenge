@@ -43,7 +43,7 @@ Ao filtrar ou por status, ou por nome e status retorna a tela de lista com o res
 
 TELA 3 (Detalhes do personagem) - Tentei mostrar as características do personagem fazendo uma folha de caderno mostrando a imagem e as informações escritas nesse "papel".
 
-Agradeço a oportunidade, tenho algumas dificuldades, as reconheço, mas acredito que uma oportunidade em um local onde tenha referências técnicas eu possa evoluir, me desenvolver e contribuir.
+Agradeço a oportunidade, tenho algumas dificuldades, as reconheço, mas acredito que uma oportunidade em um local onde tenha referências técnicas, eu possa evoluir, me desenvolver e contribuir.
 
 
 
