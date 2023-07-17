@@ -44,7 +44,7 @@ extension ListCharactersCoordinator: ListCharactersCoordinatorDelegate {
         let filterCharacterCoordinator = FilterCharacterCoordinator()
         guard let filterCharacterViewController = filterCharacterCoordinator.start() as? FilterCharacterViewController else { return }
         guard let navigationControllerLast = navigationController.viewControllers.last as? FilterCharacterViewModelActionsDelegate else { return }
-        filterCharacterViewController.viewModel?.passDelegate(delegate: navigationControllerLast)
+        filterCharacterViewController.viewModel?.passDelegateFilterCharacter(delegate: navigationControllerLast)
         let backButton = UIBarButtonItem(title: "Voltar", style: .plain, target: nil, action: nil)
         navigationController.navigationItem.backBarButtonItem = backButton
         navigationController.pushViewController(filterCharacterViewController, animated: true)

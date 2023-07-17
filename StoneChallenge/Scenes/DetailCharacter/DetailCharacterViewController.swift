@@ -19,13 +19,14 @@ class DetailCharacterViewController: UIViewController {
         }
     }
     
-    private var imgCustom: UIImageView = {
-        let imgCustom = UIImageView()
-        return imgCustom
+    private var imgCharacter: UIImageView = {
+        let imgCharacter = UIImageView()
+        return imgCharacter
     }()
     
     private let imgBackground: UIImageView = {
         let imgBackground = UIImageView()
+        imgBackground.image = UIImage(named: "ImgBackgroundDetail")
         return imgBackground
     }()
     
@@ -35,10 +36,10 @@ class DetailCharacterViewController: UIViewController {
         return vwContainer
     }()
     
-    private let notebookView: NotebookView = {
-        let notebookView = NotebookView()
-        notebookView.frame = CGRect(x: 0, y: 0, width: 250, height: 300)
-        return notebookView
+    private let vwNotebook: NotebookView = {
+        let vwNotebook = NotebookView()
+        vwNotebook.frame = CGRect(x: 0, y: 0, width: 250, height: 300)
+        return vwNotebook
     }()
     
     // MARK: - Lifecycle
@@ -56,8 +57,8 @@ class DetailCharacterViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        imgCustom.layer.cornerRadius = 10
-        imgCustom.clipsToBounds = true
+        imgCharacter.layer.cornerRadius = 10
+        imgCharacter.clipsToBounds = true
     }
         
     // MARK: - Private Methods
@@ -68,15 +69,14 @@ class DetailCharacterViewController: UIViewController {
     }
     
     private func setupLayout() {
-        imgBackground.image = UIImage(named: "ImgBackgroundDetail")
         imgBackground.translatesAutoresizingMaskIntoConstraints = false
-        notebookView.translatesAutoresizingMaskIntoConstraints = false
-        imgCustom.translatesAutoresizingMaskIntoConstraints = false
+        vwNotebook.translatesAutoresizingMaskIntoConstraints = false
+        imgCharacter.translatesAutoresizingMaskIntoConstraints = false
         vwContainer.translatesAutoresizingMaskIntoConstraints = false
 
         view.addSubview(imgBackground)
-        view.addSubview(imgCustom)
-        vwContainer.addSubview(notebookView)
+        view.addSubview(imgCharacter)
+        vwContainer.addSubview(vwNotebook)
         view.addSubview(vwContainer)
         
         NSLayoutConstraint.activate([
@@ -86,19 +86,19 @@ class DetailCharacterViewController: UIViewController {
             imgBackground.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             imgBackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            notebookView.topAnchor.constraint(equalTo: vwContainer.topAnchor),
-            notebookView.leadingAnchor.constraint(equalTo: vwContainer.leadingAnchor),
-            notebookView.trailingAnchor.constraint(equalTo: vwContainer.trailingAnchor),
-            notebookView.bottomAnchor.constraint(equalTo: vwContainer.bottomAnchor),
+            vwNotebook.topAnchor.constraint(equalTo: vwContainer.topAnchor),
+            vwNotebook.leadingAnchor.constraint(equalTo: vwContainer.leadingAnchor),
+            vwNotebook.trailingAnchor.constraint(equalTo: vwContainer.trailingAnchor),
+            vwNotebook.bottomAnchor.constraint(equalTo: vwContainer.bottomAnchor),
             
-            imgCustom.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            imgCustom.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
-            imgCustom.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-            imgCustom.heightAnchor.constraint(equalTo: imgCustom.widthAnchor),
+            imgCharacter.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            imgCharacter.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
+            imgCharacter.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            imgCharacter.heightAnchor.constraint(equalTo: imgCharacter.widthAnchor),
             
             vwContainer.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             vwContainer.heightAnchor.constraint(equalToConstant: 200),
-            vwContainer.topAnchor.constraint(equalTo: imgCustom.bottomAnchor, constant: 24),
+            vwContainer.topAnchor.constraint(equalTo: imgCharacter.bottomAnchor, constant: 24),
             vwContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 48),
             vwContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -48),
         ])
@@ -107,11 +107,11 @@ class DetailCharacterViewController: UIViewController {
     
     private func setupLabels() {
         if let character = character {
-            notebookView.addText(text: "Nome: " + character.name)
-            notebookView.addText(text: "Espécie: " + character.species)
-            notebookView.addText(text: "Situação: " + character.status.rawValue)
-            notebookView.addText(text: "Nasceu: " + character.origin.name)
-            notebookView.addText(text: "Vive em: " + character.location.name)
+            vwNotebook.addTextInLine(parameterText: "Nome: " + character.name)
+            vwNotebook.addTextInLine(parameterText: "Espécie: " + character.species)
+            vwNotebook.addTextInLine(parameterText: "Situação: " + character.status.rawValue)
+            vwNotebook.addTextInLine(parameterText: "Nasceu: " + character.origin.name)
+            vwNotebook.addTextInLine(parameterText: "Vive em: " + character.location.name)
         }
     }
     
@@ -120,7 +120,7 @@ class DetailCharacterViewController: UIViewController {
     private func updateMovieImage() {
         if let imgPathUrl = character?.image {
             let imageUrl = URL(string: imgPathUrl)
-            imgCustom.sd_setImage(with: imageUrl)
+            imgCharacter.sd_setImage(with: imageUrl)
         }
     }
 }

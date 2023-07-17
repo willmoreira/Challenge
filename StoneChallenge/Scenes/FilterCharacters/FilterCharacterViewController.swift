@@ -145,8 +145,8 @@ class FilterCharacterViewController: UIViewController {
         let selectedOptionIndex = pckVwFilter.selectedRow(inComponent: 0)
         let selectedOption = filterOptions[selectedOptionIndex]
         let filterText = tfFilter.text ?? ""
-        navigationController?.popViewController(animated: true)
         viewModel?.filterCharacters(name: filterText , status: selectedOption)
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -163,12 +163,6 @@ extension FilterCharacterViewController: UIPickerViewDataSource, UIPickerViewDel
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return filterOptions[row]
-    }
-}
-
-extension FilterCharacterViewController: FilterCharacterViewModelActionsDelegate {
-    func updateListCharacter(name: String, status: String) {
-        navigationController?.popViewController(animated: true)
     }
 }
 

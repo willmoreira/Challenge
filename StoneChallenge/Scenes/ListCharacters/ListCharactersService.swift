@@ -40,9 +40,9 @@ class ListCharactersService {
             }
             do {
                 let decoder = JSONDecoder()
-                let filmModel = try decoder.decode(CharactersResponse.self, from: data)
+                let result = try decoder.decode(CharactersResponse.self, from: data)
                 DispatchQueue.main.async {
-                    completion(.success(filmModel))
+                    completion(.success(result))
                 }
             } catch {
                 completion(.failure(.decode))

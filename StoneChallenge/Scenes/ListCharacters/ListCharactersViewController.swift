@@ -12,29 +12,37 @@ class ListCharactersViewController: UIViewController {
     
     // MARK: - Properties
     
-    private lazy var squareView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .gray
-        view.isHidden = true
-        view.alpha = 0.5
-        return view
+    private lazy var btnfilter: UIButton = {
+        let btnfilter = UIButton(type: .custom)
+        btnfilter.setImage(UIImage(named: "filter"), for: .normal)
+        btnfilter.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
+        return btnfilter
     }()
     
-    private lazy var filterButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "filter"), for: .normal)
-        button.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
-        return button
+    private lazy var btnReloadCharacters: UIButton = {
+        let btnReloadCharacters = UIButton(type: .system)
+        btnReloadCharacters.setTitle("RECARREGAR LISTA", for: .normal)
+        btnReloadCharacters.setTitleColor(.black, for: .normal)
+        btnReloadCharacters.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        btnReloadCharacters.layer.borderWidth = 1.0
+        btnReloadCharacters.layer.borderColor = UIColor.black.cgColor
+        btnReloadCharacters.backgroundColor = UIColor(red:245/255.0, green: 237/255.0, blue: 117/255.0, alpha: 1.0)
+        btnReloadCharacters.addTarget(self, action: #selector(reloadCharactersButtonTapped), for: .touchUpInside)
+        btnReloadCharacters.isHidden = true
+        btnReloadCharacters.clipsToBounds = true
+        return btnReloadCharacters
     }()
     
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        return tableView
+    private lazy var tblVwListCharacter: UITableView = {
+        let tblVwListCharacter = UITableView()
+        tblVwListCharacter.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return tblVwListCharacter
     }()
+    
+    private var activityIndicator = UIActivityIndicatorView(style: .large)
+    private let refreshControl = UIRefreshControl()
     
     var viewModel: ListCharactersViewModelDelegate?
-    var activityIndicator = UIActivityIndicatorView(style: .large)
 
     // MARK: - View Lifecycle
     
@@ -42,59 +50,98 @@ class ListCharactersViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupNavigationBar()
-        configureTableView()
-        configureSquareView()
+        setupTableView()
+        setupReloadCharacterButton()
+        setupActivityIndicator()
         activityIndicator.startAnimating()
         viewModel?.requestCharacterListInitial(name: "", status: "")
-    }
+      }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupBackButton()
     }
     
-    // MARK: - Private Methods
-    
-    private func configureSquareView() {
-        view.addSubview(squareView)
-        squareView.translatesAutoresizingMaskIntoConstraints = false
-        
-        squareView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        squareView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        squareView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        squareView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        setupActivityIndicator()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        btnReloadCharacters.layer.cornerRadius = btnReloadCharacters.frame.height / 2
+        btnReloadCharacters.clipsToBounds = true
     }
+    
+    // MARK: - Private Methods
     
     private func setupBackButton() {
         navigationItem.title = "Lista de Personagens"
     }
     
-    private func configureTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(TableViewCharacterCells.self, forCellReuseIdentifier: "TableViewCharacterCells")
-        
-        view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+    private func setupTableView() {
+        tblVwListCharacter.delegate = self
+        tblVwListCharacter.dataSource = self
+        tblVwListCharacter.register(TableViewCharacterCells.self, forCellReuseIdentifier: "TableViewCharacterCells")
+        tblVwListCharacter.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
+  
+        view.addSubview(tblVwListCharacter)
+        tblVwListCharacter.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tblVwListCharacter.topAnchor.constraint(equalTo: view.topAnchor),
+            tblVwListCharacter.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tblVwListCharacter.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tblVwListCharacter.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
     
     private func setupNavigationBar() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: filterButton)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btnfilter)
+    }
+    
+    private func setupReloadCharacterButton() {
+        btnReloadCharacters.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(btnReloadCharacters)
+        
+        NSLayoutConstraint.activate([
+            btnReloadCharacters.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            btnReloadCharacters.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            btnReloadCharacters.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 48),
+            btnReloadCharacters.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -48),
+            btnReloadCharacters.heightAnchor.constraint(equalToConstant: 48),
+        ])
+    }
+    
+    private func setupActivityIndicator() {
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicator)
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: tblVwListCharacter.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: tblVwListCharacter.centerYAnchor)
+        ])
+    }
+    
+    private func showAlert() {
+        let alertController = UIAlertController(title: "Busca sem resultado", message: "Nenhum personagem foi encontrado", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            alertController.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     // MARK: - Actions
     
     @objc private func filterButtonTapped() {
         viewModel?.goesToFilterCharacter()
+    }
+    
+    @objc private func reloadCharactersButtonTapped() {
+        btnReloadCharacters.isHidden = true
+        viewModel?.requestCharacterListInitial(name: "", status: "")
+    }
+    
+    @objc private func refreshTableView() {
+        viewModel?.requestCharacterListInitial(name: "", status: "")
+        refreshControl.endRefreshing()
     }
     
     // MARK: - Scroll View Delegate
@@ -105,8 +152,6 @@ class ListCharactersViewController: UIViewController {
         let tableHeight = scrollView.frame.size.height
         
         if offsetY > contentHeight - tableHeight {
-            squareView.isHidden = false
-            activityIndicator.startAnimating()
             loadNextPage()
         }
     }
@@ -117,14 +162,6 @@ class ListCharactersViewController: UIViewController {
         viewModel?.requestCharacterList()
     }
     
-    func setupActivityIndicator() {
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        squareView.addSubview(activityIndicator)
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
-        ])
-    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -158,16 +195,17 @@ extension ListCharactersViewController: UITableViewDelegate, UITableViewDataSour
 extension ListCharactersViewController: ListCharactersViewControllerDelegate {
     func updateListCharacter() {
         activityIndicator.stopAnimating()
-        squareView.isHidden = true
+        tblVwListCharacter.reloadData()
         if viewModel?.characterListSize() == 0 {
-            //chama o alert
+            btnReloadCharacters.isHidden = false
+            showAlert()
         }
-        tableView.reloadData()
     }
 }
 
 extension ListCharactersViewController: FilterCharacterViewModelActionsDelegate {
     func updateListCharacter(name: String, status: String) {
+        activityIndicator.startAnimating()
         viewModel?.requestCharacterListInitial(name: name, status: status)
     }
 }

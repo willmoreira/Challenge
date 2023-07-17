@@ -35,10 +35,12 @@ class NotebookView: UIView {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(containerView)
 
-        containerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            containerView.topAnchor.constraint(equalTo: topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
         
         var previousLineView: UIView?
         
@@ -49,27 +51,33 @@ class NotebookView: UIView {
             lineView.translatesAutoresizingMaskIntoConstraints = false
             containerView.addSubview(lineView)
             
-            lineView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-            lineView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-            lineView.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
-            
+            NSLayoutConstraint.activate([
+                lineView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+                lineView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+                lineView.heightAnchor.constraint(equalToConstant: 1.0),
+            ])
+             
             if let previousLineView = previousLineView {
-                lineView.topAnchor.constraint(equalTo: previousLineView.bottomAnchor, constant: lineSpacing).isActive = true
+                NSLayoutConstraint.activate([
+                    lineView.topAnchor.constraint(equalTo: previousLineView.bottomAnchor, constant: lineSpacing)
+                ])
             }
             previousLineView = lineView
         }
         if let previousLineView = previousLineView {
-            containerView.bottomAnchor.constraint(equalTo: previousLineView.bottomAnchor, constant: lineSpacing).isActive = true
+            NSLayoutConstraint.activate([
+                containerView.bottomAnchor.constraint(equalTo: previousLineView.bottomAnchor, constant: lineSpacing)
+            ])
         }
     }
     
     // MARK: - Public Methods
     
-    func addText(text: String) {
+    func addTextInLine(parameterText: String) {
         guard emptyIndex < arrayLines.count else { return }
         
         let labelText: UILabel = UILabel()
-        labelText.text = text
+        labelText.text = parameterText
         
         labelText.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(labelText)

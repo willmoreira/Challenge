@@ -32,7 +32,6 @@ class FilterCharacterCoordinator {
         viewController.viewModel = viewModel
         return viewController
     }
-    
 }
 
 extension FilterCharacterCoordinator: FilterCharacterCoordinatorDelegate {

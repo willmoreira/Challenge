@@ -13,7 +13,7 @@ protocol FilterCharacterViewModelActionsDelegate: AnyObject {
 
 protocol FilterCharacterViewModelDelegate: AnyObject {
     func filterCharacters(name: String, status: String)
-    func passDelegate(delegate: FilterCharacterViewModelActionsDelegate)
+    func passDelegateFilterCharacter(delegate: FilterCharacterViewModelActionsDelegate)
 }
 
 class FilterCharacterViewModel: FilterCharacterViewModelDelegate {
@@ -36,7 +36,7 @@ class FilterCharacterViewModel: FilterCharacterViewModelDelegate {
         delegate?.updateListCharacter(name: name, status: status)
     }
     
-    func passDelegate(delegate: FilterCharacterViewModelActionsDelegate) {
+    func passDelegateFilterCharacter(delegate: FilterCharacterViewModelActionsDelegate) {
         self.delegate = delegate
     }
 }
