@@ -24,11 +24,11 @@ class DetailCharacterViewController: UIViewController {
         return imgCharacter
     }()
     
-    private let imgBackground: UIImageView = {
-        let imgBackground = UIImageView()
-        imgBackground.accessibilityIdentifier = "imgBackgroundDetail"
-        imgBackground.image = UIImage(named: "imgBackgroundDetail")
-        return imgBackground
+    private let imgVwBackground: UIImageView = {
+        let imgVwBackground = UIImageView()
+        imgVwBackground.accessibilityIdentifier = "imgBackgroundDetail"
+        imgVwBackground.image = UIImage(named: "imgBackgroundDetail")
+        return imgVwBackground
     }()
     
     private let vwContainer: UIView = {
@@ -70,22 +70,21 @@ class DetailCharacterViewController: UIViewController {
     }
     
     private func setupLayout() {
-        imgBackground.translatesAutoresizingMaskIntoConstraints = false
+        imgVwBackground.translatesAutoresizingMaskIntoConstraints = false
         vwNotebook.translatesAutoresizingMaskIntoConstraints = false
         imgCharacter.translatesAutoresizingMaskIntoConstraints = false
         vwContainer.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(imgBackground)
+        view.addSubview(imgVwBackground)
         view.addSubview(imgCharacter)
         vwContainer.addSubview(vwNotebook)
         view.addSubview(vwContainer)
         
         NSLayoutConstraint.activate([
-            //TODO: validar no iphone 8 e portrait
-            imgBackground.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            imgBackground.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            imgBackground.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            imgBackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            imgVwBackground.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            imgVwBackground.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            imgVwBackground.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            imgVwBackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             vwNotebook.topAnchor.constraint(equalTo: vwContainer.topAnchor),
             vwNotebook.leadingAnchor.constraint(equalTo: vwContainer.leadingAnchor),

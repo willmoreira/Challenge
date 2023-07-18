@@ -49,9 +49,8 @@ class FilterCharacterViewController: UIViewController {
     
     private let imgVwBackground: UIImageView = {
         let imgVwBackground = UIImageView()
+        imgVwBackground.accessibilityIdentifier = "imgBackgroundDetail"
         imgVwBackground.image = UIImage(named: "imgBackgroundFilter")
-        imgVwBackground.contentMode = .scaleAspectFill
-        imgVwBackground.alpha = 0.8
         return imgVwBackground
     }()
     
