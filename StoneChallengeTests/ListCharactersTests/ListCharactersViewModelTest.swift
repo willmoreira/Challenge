@@ -33,7 +33,7 @@ class ListCharactersViewModelTest: XCTestCase {
     }
     
     func testdoRequestListCharactersSucces() {
-        
+
         // given
         let responseCharacter = ObjectSeeds.responseCharacter
         
@@ -91,7 +91,6 @@ class ListCharactersViewModelTest: XCTestCase {
         
         // given
         let responseCharacter = ObjectSeeds.responseCharacterEmpytResults
-        
         serviceSpy.requestResult = .success(responseCharacter)
         sut.requestCharacterListInitial(name: "", status: "")
         
@@ -105,7 +104,6 @@ class ListCharactersViewModelTest: XCTestCase {
     func testGoesToFilterCharacter() {
         
         // given
-        
         // when
         sut.goesToFilterCharacter()
         

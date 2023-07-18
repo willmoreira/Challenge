@@ -29,6 +29,7 @@ class FilterCharacterViewModelTests: XCTestCase {
     // MARK: - Tests
     
     func testFilterCharacters() {
+        
         // Given
         let delegateSpy = FilterCharacterViewModelActionsDelegateSpy()
         sut.passDelegateFilterCharacter(delegate: delegateSpy)
@@ -41,4 +42,3 @@ class FilterCharacterViewModelTests: XCTestCase {
         XCTAssertEqual(delegateSpy.updatedStatus, "Alive")
     }
 }
-

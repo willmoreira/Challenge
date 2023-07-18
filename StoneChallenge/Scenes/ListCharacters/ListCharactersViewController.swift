@@ -27,7 +27,7 @@ class ListCharactersViewController: UIViewController {
         btnReloadCharacters.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         btnReloadCharacters.layer.borderWidth = 1.0
         btnReloadCharacters.layer.borderColor = UIColor.black.cgColor
-        btnReloadCharacters.backgroundColor = UIColor(red:245/255.0, green: 237/255.0, blue: 117/255.0, alpha: 1.0)
+        btnReloadCharacters.backgroundColor = UIColor(red: 245/255.0, green: 237/255.0, blue: 117/255.0, alpha: 1.0)
         btnReloadCharacters.addTarget(self, action: #selector(reloadCharactersButtonTapped), for: .touchUpInside)
         btnReloadCharacters.isHidden = true
         btnReloadCharacters.clipsToBounds = true
@@ -216,7 +216,6 @@ extension ListCharactersViewController: ListCharactersViewControllerDelegate {
             self.tblVwListCharacter.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }
-    
     
 }
 

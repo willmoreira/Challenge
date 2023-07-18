@@ -19,7 +19,6 @@ class ListCharactersService: ListCharactersServiceProtocol {
         
         let nameValid = name ?? ""
         let statusValid = status ?? ""
-        
         let urlString = "https://rickandmortyapi.com/api/character/?page=\(page)&name=\(nameValid)&status=\(statusValid)"
         let session = URLSession.shared
         

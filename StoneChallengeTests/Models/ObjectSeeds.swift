@@ -8,7 +8,6 @@
 import Foundation
 @testable import StoneChallenge
 
-
 class ObjectSeeds {
     static let responseCharacterWithTwoCharacter = CharactersResponse(
         info: CharactersResponse.Info(

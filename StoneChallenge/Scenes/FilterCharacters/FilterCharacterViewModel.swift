@@ -32,4 +32,3 @@ class FilterCharacterViewModel: FilterCharacterViewModelDelegate {
         self.delegate = delegate
     }
 }
-

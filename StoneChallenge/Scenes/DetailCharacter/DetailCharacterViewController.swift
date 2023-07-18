@@ -13,7 +13,7 @@ class DetailCharacterViewController: UIViewController {
     // MARK: - Properties
     
     var character: CharactersResponse.Result? {
-        didSet{
+        didSet {
             updateMovieImage()
         }
     }
@@ -28,7 +28,6 @@ class DetailCharacterViewController: UIViewController {
         let imgBackground = UIImageView()
         imgBackground.accessibilityIdentifier = "imgBackgroundDetail"
         imgBackground.image = UIImage(named: "imgBackgroundDetail")
-        
         return imgBackground
     }()
     
@@ -102,7 +101,7 @@ class DetailCharacterViewController: UIViewController {
             vwContainer.heightAnchor.constraint(equalToConstant: 200),
             vwContainer.topAnchor.constraint(equalTo: imgCharacter.bottomAnchor, constant: 24),
             vwContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 48),
-            vwContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -48),
+            vwContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -48)
         ])
         setupLabels()
     }

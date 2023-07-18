@@ -54,7 +54,7 @@ class NotebookView: UIView {
             NSLayoutConstraint.activate([
                 lineView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
                 lineView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-                lineView.heightAnchor.constraint(equalToConstant: 1.0),
+                lineView.heightAnchor.constraint(equalToConstant: 1.0)
             ])
              
             if let previousLineView = previousLineView {

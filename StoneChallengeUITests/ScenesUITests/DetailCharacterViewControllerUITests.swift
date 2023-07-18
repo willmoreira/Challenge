@@ -14,7 +14,7 @@ class DetailCharacterViewControllerUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
-        app.launch() // Certifique-se de que o aplicativo seja lançado antes de cada teste de UI.
+        app.launch()
     }
     
     func testDetailCharacterScreen() throws {

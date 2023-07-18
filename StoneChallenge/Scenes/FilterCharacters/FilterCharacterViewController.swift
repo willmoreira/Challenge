@@ -41,7 +41,7 @@ class FilterCharacterViewController: UIViewController {
         btnFilter.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         btnFilter.layer.borderWidth = 1.0
         btnFilter.layer.borderColor = UIColor.black.cgColor
-        btnFilter.backgroundColor = UIColor(red:245/255.0, green: 237/255.0, blue: 117/255.0, alpha: 1.0)
+        btnFilter.backgroundColor = UIColor(red: 245/255.0, green: 237/255.0, blue: 117/255.0, alpha: 1.0)
         btnFilter.accessibilityIdentifier = "btnFilter"
         btnFilter.clipsToBounds = true
         return btnFilter
@@ -155,7 +155,7 @@ class FilterCharacterViewController: UIViewController {
         let selectedOptionIndex = pckVwFilter.selectedRow(inComponent: 0)
         let selectedOption = filterOptions[selectedOptionIndex]
         let filterText = tfFilter.text ?? ""
-        viewModel?.filterCharacters(name: filterText , status: selectedOption)
+        viewModel?.filterCharacters(name: filterText, status: selectedOption)
         navigationController?.popViewController(animated: true)
     }
     
@@ -179,4 +179,3 @@ extension FilterCharacterViewController: UIPickerViewDataSource, UIPickerViewDel
         return filterOptions[row]
     }
 }
-
