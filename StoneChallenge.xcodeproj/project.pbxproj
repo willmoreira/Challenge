@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		3DA42EA22A66247900B17D38 /* ListCharactersViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA42EA12A66247900B17D38 /* ListCharactersViewControllerUITests.swift */; };
 		3DA42EA42A66252600B17D38 /* DetailCharacterViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA42EA32A66252600B17D38 /* DetailCharacterViewControllerUITests.swift */; };
-		3DA42EA62A66319D00B17D38 /* ListCharactersCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA42EA52A66319D00B17D38 /* ListCharactersCoordinatorTests.swift */; };
 		3DA42EAC2A66345600B17D38 /* FilterCharacterViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA42EAB2A66345600B17D38 /* FilterCharacterViewControllerUITests.swift */; };
 		3DAE75642A66424100B28DA0 /* DetailCharacterCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE75632A66424100B28DA0 /* DetailCharacterCoordinatorTests.swift */; };
 		3DAE75672A66437500B28DA0 /* FilterCharacterCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE75662A66437500B28DA0 /* FilterCharacterCoordinatorTests.swift */; };
+		3DAE756A2A66E12700B28DA0 /* ObjectSeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE75692A66E12700B28DA0 /* ObjectSeeds.swift */; };
+		3DAE756C2A66E80D00B28DA0 /* FilterCharacterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE756B2A66E80D00B28DA0 /* FilterCharacterViewModelTests.swift */; };
+		3DAE756F2A66E8A000B28DA0 /* FilterCharacterViewModelActionsDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE756E2A66E8A000B28DA0 /* FilterCharacterViewModelActionsDelegateSpy.swift */; };
 		3DAFCB692A635D8F00DAAE04 /* NotebookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB682A635D8F00DAAE04 /* NotebookView.swift */; };
 		3DAFCB6B2A645A9F00DAAE04 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB6A2A645A9F00DAAE04 /* ApiError.swift */; };
 		3DAFCB722A658FB600DAAE04 /* ListCharactersViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB712A658FB600DAAE04 /* ListCharactersViewModelTest.swift */; };
@@ -57,10 +59,12 @@
 /* Begin PBXFileReference section */
 		3DA42EA12A66247900B17D38 /* ListCharactersViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersViewControllerUITests.swift; sourceTree = "<group>"; };
 		3DA42EA32A66252600B17D38 /* DetailCharacterViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharacterViewControllerUITests.swift; sourceTree = "<group>"; };
-		3DA42EA52A66319D00B17D38 /* ListCharactersCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersCoordinatorTests.swift; sourceTree = "<group>"; };
 		3DA42EAB2A66345600B17D38 /* FilterCharacterViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCharacterViewControllerUITests.swift; sourceTree = "<group>"; };
 		3DAE75632A66424100B28DA0 /* DetailCharacterCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharacterCoordinatorTests.swift; sourceTree = "<group>"; };
 		3DAE75662A66437500B28DA0 /* FilterCharacterCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCharacterCoordinatorTests.swift; sourceTree = "<group>"; };
+		3DAE75692A66E12700B28DA0 /* ObjectSeeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSeeds.swift; sourceTree = "<group>"; };
+		3DAE756B2A66E80D00B28DA0 /* FilterCharacterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCharacterViewModelTests.swift; sourceTree = "<group>"; };
+		3DAE756E2A66E8A000B28DA0 /* FilterCharacterViewModelActionsDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCharacterViewModelActionsDelegateSpy.swift; sourceTree = "<group>"; };
 		3DAFCB682A635D8F00DAAE04 /* NotebookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookView.swift; sourceTree = "<group>"; };
 		3DAFCB6A2A645A9F00DAAE04 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		3DAFCB712A658FB600DAAE04 /* ListCharactersViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersViewModelTest.swift; sourceTree = "<group>"; };
@@ -126,9 +130,27 @@
 		3DAE75652A66433500B28DA0 /* FilterCharacterTests */ = {
 			isa = PBXGroup;
 			children = (
+				3DAE756D2A66E87A00B28DA0 /* Spys */,
 				3DAE75662A66437500B28DA0 /* FilterCharacterCoordinatorTests.swift */,
+				3DAE756B2A66E80D00B28DA0 /* FilterCharacterViewModelTests.swift */,
 			);
 			path = FilterCharacterTests;
+			sourceTree = "<group>";
+		};
+		3DAE75682A66E0BB00B28DA0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3DAE75692A66E12700B28DA0 /* ObjectSeeds.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3DAE756D2A66E87A00B28DA0 /* Spys */ = {
+			isa = PBXGroup;
+			children = (
+				3DAE756E2A66E8A000B28DA0 /* FilterCharacterViewModelActionsDelegateSpy.swift */,
+			);
+			path = Spys;
 			sourceTree = "<group>";
 		};
 		3DAFCB672A635D6100DAAE04 /* Views */ = {
@@ -142,21 +164,20 @@
 		3DAFCB702A658F6B00DAAE04 /* ListCharactersTests */ = {
 			isa = PBXGroup;
 			children = (
-				3DAFCB732A6590CD00DAAE04 /* Mocks */,
+				3DAFCB732A6590CD00DAAE04 /* Spys */,
 				3DAFCB712A658FB600DAAE04 /* ListCharactersViewModelTest.swift */,
-				3DA42EA52A66319D00B17D38 /* ListCharactersCoordinatorTests.swift */,
 			);
 			path = ListCharactersTests;
 			sourceTree = "<group>";
 		};
-		3DAFCB732A6590CD00DAAE04 /* Mocks */ = {
+		3DAFCB732A6590CD00DAAE04 /* Spys */ = {
 			isa = PBXGroup;
 			children = (
 				3DAFCB742A6590F600DAAE04 /* ListCharactersServiceSpy.swift */,
 				3DAFCB7A2A65C40C00DAAE04 /* ListCharactersCoordinatorSpy.swift */,
 				3DAFCB7C2A65C73600DAAE04 /* ListCharactersViewControllerSpy.swift */,
 			);
-			path = Mocks;
+			path = Spys;
 			sourceTree = "<group>";
 		};
 		3DAFCB802A65D65A00DAAE04 /* ScenesUITests */ = {
@@ -193,13 +214,13 @@
 		3DB50C3F2A61CE30005C48F8 /* StoneChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				3DE0DF532A61E2BF00BA7473 /* Models */,
-				3DB50C702A61CFD0005C48F8 /* Scenes */,
+				3DB50C4E2A61CE33005C48F8 /* Info.plist */,
 				3DB50C402A61CE30005C48F8 /* AppDelegate.swift */,
 				3DB50C422A61CE30005C48F8 /* SceneDelegate.swift */,
 				3DB50C492A61CE33005C48F8 /* Assets.xcassets */,
 				3DB50C4B2A61CE33005C48F8 /* LaunchScreen.storyboard */,
-				3DB50C4E2A61CE33005C48F8 /* Info.plist */,
+				3DE0DF532A61E2BF00BA7473 /* Models */,
+				3DB50C702A61CFD0005C48F8 /* Scenes */,
 			);
 			path = StoneChallenge;
 			sourceTree = "<group>";
@@ -207,9 +228,10 @@
 		3DB50C562A61CE33005C48F8 /* StoneChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				3DAE75652A66433500B28DA0 /* FilterCharacterTests */,
 				3DAE75622A66421A00B28DA0 /* DetailCharacterTests */,
+				3DAE75652A66433500B28DA0 /* FilterCharacterTests */,
 				3DAFCB702A658F6B00DAAE04 /* ListCharactersTests */,
+				3DAE75682A66E0BB00B28DA0 /* Models */,
 			);
 			path = StoneChallengeTests;
 			sourceTree = "<group>";
@@ -439,13 +461,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DAE756C2A66E80D00B28DA0 /* FilterCharacterViewModelTests.swift in Sources */,
 				3DAFCB722A658FB600DAAE04 /* ListCharactersViewModelTest.swift in Sources */,
+				3DAE756F2A66E8A000B28DA0 /* FilterCharacterViewModelActionsDelegateSpy.swift in Sources */,
 				3DAE75672A66437500B28DA0 /* FilterCharacterCoordinatorTests.swift in Sources */,
 				3DAFCB7B2A65C40C00DAAE04 /* ListCharactersCoordinatorSpy.swift in Sources */,
 				3DAFCB7D2A65C73600DAAE04 /* ListCharactersViewControllerSpy.swift in Sources */,
 				3DAFCB752A6590F600DAAE04 /* ListCharactersServiceSpy.swift in Sources */,
-				3DA42EA62A66319D00B17D38 /* ListCharactersCoordinatorTests.swift in Sources */,
 				3DAE75642A66424100B28DA0 /* DetailCharacterCoordinatorTests.swift in Sources */,
+				3DAE756A2A66E12700B28DA0 /* ObjectSeeds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

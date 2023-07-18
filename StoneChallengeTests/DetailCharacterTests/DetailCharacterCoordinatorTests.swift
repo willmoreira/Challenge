@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import StoneChallenge // Substitua "SeuProjeto" pelo nome do seu projeto
+@testable import StoneChallenge
 
 class DetailCharacterCoordinatorTests: XCTestCase {
 

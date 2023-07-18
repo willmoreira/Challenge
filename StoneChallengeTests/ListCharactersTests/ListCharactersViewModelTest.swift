@@ -35,26 +35,7 @@ class ListCharactersViewModelTest: XCTestCase {
     func testdoRequestListCharactersSucces() {
         
         // given
-        let responseCharacter = CharactersResponse(
-            info: CharactersResponse.Info(
-                count: 1,
-                pages: 1,
-                next: "3",
-                prev: "1"),
-            results: [CharactersResponse.Result(
-                id: 1,
-                name: "",
-                status: CharactersResponse.Status.dead,
-                species: "",
-                type: "",
-                gender: CharactersResponse.Gender.female,
-                origin: CharactersResponse.Location(name: "", url: ""),
-                location: CharactersResponse.Location(name: "", url: ""),
-                image: "",
-                episode: [""],
-                url: "",
-                created: "")],
-            error: nil)
+        let responseCharacter = ObjectSeeds.responseCharacter
         
         serviceSpy.requestResult = .success(responseCharacter)
         
@@ -81,24 +62,7 @@ class ListCharactersViewModelTest: XCTestCase {
     func testRequestCharacterListInitial() {
         
         // given
-        let responseCharacter = CharactersResponse(info: CharactersResponse.Info(count: 1,
-                                                                                 pages: 2,
-                                                                                 next: "",
-                                                                                 prev: ""),
-                                                   results: [CharactersResponse.Result(
-                                                    id: 1,
-                                                    name: "",
-                                                    status: CharactersResponse.Status.dead,
-                                                    species: "",
-                                                    type: "",
-                                                    gender: CharactersResponse.Gender.female,
-                                                    origin: CharactersResponse.Location(name: "", url: ""),
-                                                    location: CharactersResponse.Location(name: "", url: ""),
-                                                    image: "",
-                                                    episode: [""],
-                                                    url: "",
-                                                    created: "")],
-                                                   error: nil)
+        let responseCharacter = ObjectSeeds.responseCharacter
         serviceSpy.requestResult = .success(responseCharacter)
         
         // when
@@ -111,26 +75,7 @@ class ListCharactersViewModelTest: XCTestCase {
     func testGoesToDetailCharacter() {
         
         // given
-        let character = CharactersResponse.Result(
-            id: 1,
-            name: "",
-            status: CharactersResponse.Status.dead,
-            species: "",
-            type: "",
-            gender: CharactersResponse.Gender.female,
-            origin: CharactersResponse.Location(name: "", url: ""),
-            location: CharactersResponse.Location(name: "", url: ""),
-            image: "",
-            episode: [""],
-            url: "",
-            created: "")
-        
-        let responseCharacter = CharactersResponse(info: CharactersResponse.Info(count: 1,
-                                                                                 pages: 2,
-                                                                                 next: "",
-                                                                                 prev: ""),
-                                                   results: [character],
-                                                   error: nil)
+        let responseCharacter = ObjectSeeds.responseCharacter
         
         serviceSpy.requestResult = .success(responseCharacter)
         sut.requestCharacterListInitial(name: "", status: "")
@@ -145,13 +90,7 @@ class ListCharactersViewModelTest: XCTestCase {
     func testGoesToDetailCharacterEmptyList() {
         
         // given
-        
-        let responseCharacter = CharactersResponse(info: CharactersResponse.Info(count: 1,
-                                                                                 pages: 2,
-                                                                                 next: "",
-                                                                                 prev: ""),
-                                                   results: [],
-                                                   error: nil)
+        let responseCharacter = ObjectSeeds.responseCharacterEmpytResults
         
         serviceSpy.requestResult = .success(responseCharacter)
         sut.requestCharacterListInitial(name: "", status: "")
@@ -177,41 +116,9 @@ class ListCharactersViewModelTest: XCTestCase {
     func testGetCharacter() {
         
         // given
-        let character1 = CharactersResponse.Result(
-            id: 1,
-            name: "",
-            status: CharactersResponse.Status.dead,
-            species: "",
-            type: "",
-            gender: CharactersResponse.Gender.female,
-            origin: CharactersResponse.Location(name: "", url: ""),
-            location: CharactersResponse.Location(name: "", url: ""),
-            image: "",
-            episode: [""],
-            url: "",
-            created: "")
-        
-        let character2 = CharactersResponse.Result(
-            id: 2,
-            name: "",
-            status: CharactersResponse.Status.dead,
-            species: "",
-            type: "",
-            gender: CharactersResponse.Gender.female,
-            origin: CharactersResponse.Location(name: "", url: ""),
-            location: CharactersResponse.Location(name: "", url: ""),
-            image: "",
-            episode: [""],
-            url: "",
-            created: "")
-        
-        let responseCharacter = CharactersResponse(info: CharactersResponse.Info(count: 1,
-                                                                                 pages: 2,
-                                                                                 next: "",
-                                                                                 prev: ""),
-                                                   results: [character1, character2],
-                                                   error: nil)
-        
+        let character1 = ObjectSeeds.character1
+        let character2 = ObjectSeeds.character2
+        let responseCharacter = ObjectSeeds.responseCharacterWithTwoCharacter
         serviceSpy.requestResult = .success(responseCharacter)
         sut.requestCharacterListInitial(name: "", status: "")
         
@@ -219,6 +126,7 @@ class ListCharactersViewModelTest: XCTestCase {
         let retrievedCharacter1 = sut.getCharacter(index: 0)
         let retrievedCharacter2 = sut.getCharacter(index: 1)
         
+        // then
         XCTAssertEqual(retrievedCharacter1.id, character1.id, "The method should return the character at id 1.")
         XCTAssertEqual(retrievedCharacter2.id, character2.id, "The method should return the character at id 2.")
     }    
