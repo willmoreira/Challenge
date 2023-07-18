@@ -23,11 +23,11 @@ protocol ListCharactersViewModelDelegate: AnyObject {
 class ListCharactersViewModel: ListCharactersViewModelDelegate {
     
     // MARK: - Properties
-
+    
     weak var delegate: ListCharactersViewControllerDelegate?
     var coordinator: ListCharactersCoordinatorDelegate?
-    let service: ListCharactersServiceProtocol
     
+    private let service: ListCharactersServiceProtocol
     private var name: String?
     private var status: String?
     private var page: Int = 1

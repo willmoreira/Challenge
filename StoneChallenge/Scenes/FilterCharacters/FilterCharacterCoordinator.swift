@@ -12,7 +12,7 @@ class FilterCharacterCoordinator {
     // MARK: - Properties
     
     var navigationController: UINavigationController
-        
+    
     // MARK: - Initialization
     
     init(navigationController: UINavigationController = UINavigationController()) {

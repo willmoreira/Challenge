@@ -43,10 +43,10 @@ class ListCharactersViewController: UIViewController {
     
     private var activityIndicator = UIActivityIndicatorView(style: .large)
     private let refreshControl = UIRefreshControl()
-    private var isShowTheFirstCell = false
+    private var isToShowTheFirstCell = false
     
     var viewModel: ListCharactersViewModelDelegate?
-
+    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -58,7 +58,7 @@ class ListCharactersViewController: UIViewController {
         setupActivityIndicator()
         activityIndicator.startAnimating()
         viewModel?.requestCharacterListInitial(name: "", status: "")
-      }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -83,7 +83,7 @@ class ListCharactersViewController: UIViewController {
         tblVwListCharacter.register(TableViewCharacterCells.self, forCellReuseIdentifier: "TableViewCharacterCells")
         tblVwListCharacter.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
-  
+        
         view.addSubview(tblVwListCharacter)
         tblVwListCharacter.translatesAutoresizingMaskIntoConstraints = false
         
@@ -204,18 +204,20 @@ extension ListCharactersViewController: ListCharactersViewControllerDelegate {
         if viewModel?.characterListSize() == 0 {
             btnReloadCharacters.isHidden = false
             showAlert()
-        } else if isShowTheFirstCell {
-            self.isShowTheFirstCell = false
+        } else if isToShowTheFirstCell {
+            self.isToShowTheFirstCell = false
             let indexPath = IndexPath(row: 0, section: 0)
             self.tblVwListCharacter.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }
 }
 
+// MARK: - FilterCharacterViewModelActionsDelegate
+
 extension ListCharactersViewController: FilterCharacterViewModelActionsDelegate {
     func updateListCharacter(name: String, status: String) {
         activityIndicator.startAnimating()
-        isShowTheFirstCell = true
+        isToShowTheFirstCell = true
         viewModel?.requestCharacterListInitial(name: name, status: status)
     }
 }

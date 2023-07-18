@@ -11,8 +11,7 @@ import SDWebImage
 class DetailCharacterViewController: UIViewController {
     
     // MARK: - Properties
-
-    //var viewModel: DetailCharacterViewModelDelegate?
+    
     var character: CharactersResponse.Result? {
         didSet{
             updateMovieImage()
@@ -63,9 +62,9 @@ class DetailCharacterViewController: UIViewController {
         imgCharacter.layer.cornerRadius = 10
         imgCharacter.clipsToBounds = true
     }
-        
+    
     // MARK: - Private Methods
- 
+    
     private func setupBackButton() {
         navigationItem.title = "Detalhes do Personagem"
         navigationController?.navigationBar.topItem?.title = "Voltar"
@@ -76,7 +75,7 @@ class DetailCharacterViewController: UIViewController {
         vwNotebook.translatesAutoresizingMaskIntoConstraints = false
         imgCharacter.translatesAutoresizingMaskIntoConstraints = false
         vwContainer.translatesAutoresizingMaskIntoConstraints = false
-
+        
         view.addSubview(imgBackground)
         view.addSubview(imgCharacter)
         vwContainer.addSubview(vwNotebook)
@@ -119,7 +118,7 @@ class DetailCharacterViewController: UIViewController {
     }
     
     // MARK: - Helper
-
+    
     private func updateMovieImage() {
         if let imgPathUrl = character?.image {
             let imageUrl = URL(string: imgPathUrl)

@@ -27,17 +27,17 @@ class TableViewCharacterCells: UITableViewCell {
     }
     
     // MARK: - Private Methods
-
+    
     private func setupLayoutCell() {
         accessoryType = .disclosureIndicator
         selectionStyle = .none
         
         contentView.addSubview(customImageView)
         customImageView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         contentView.addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-    
+        
         NSLayoutConstraint.activate([
             customImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             customImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),

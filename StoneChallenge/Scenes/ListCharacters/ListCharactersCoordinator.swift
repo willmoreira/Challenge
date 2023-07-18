@@ -39,7 +39,7 @@ class ListCharactersCoordinator {
 extension ListCharactersCoordinator: ListCharactersCoordinatorDelegate {
     
     // MARK: - ListCharactersCoordinatorDelegate
-
+    
     func goesToFilterCharacter() {
         let filterCharacterCoordinator = FilterCharacterCoordinator()
         guard let filterCharacterViewController = filterCharacterCoordinator.start() as? FilterCharacterViewController else { return }
@@ -59,4 +59,3 @@ extension ListCharactersCoordinator: ListCharactersCoordinatorDelegate {
         navigationController.pushViewController(detailCharacterViewController, animated: true)
     }
 }
-

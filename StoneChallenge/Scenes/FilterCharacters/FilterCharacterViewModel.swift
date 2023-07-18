@@ -17,9 +17,9 @@ protocol FilterCharacterViewModelDelegate: AnyObject {
 }
 
 class FilterCharacterViewModel: FilterCharacterViewModelDelegate {
-
+    
     // MARK: - Properties
-
+    
     weak var delegate: FilterCharacterViewModelActionsDelegate?
     
     // MARK: - Public Methods

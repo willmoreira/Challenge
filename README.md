@@ -31,7 +31,7 @@ O target de versão do iOS é o 15.5 ou superior
 
 # Considerações e observações
 
-Desafio feito usando a arquitetura MVVM e coordinator para navegação, teste unitários realizados com uma cobertura mínima e teste de UI realizados nas camadas de View.
+Desafio feito usando a arquitetura MVVM e coordinator para navegação, teste unitários realizado e teste de UI realizados nas camadas de View como mostra a imagem a seguir.
 
 TELA 1 (Listagem de personagens) - Feito paginação da lista, loading antes da requisição, loading quando chega ao fim da primeira requisição até obter o resultado da segunda, célula customizada com a imagem do personagem com alpha de sombreamento, disclosureIndicator habilitado indicando que há clique na célula.
 No caso do retorno da tela de filtro, se a lista está vazia mostro um alerta com esse feedback para o usuário

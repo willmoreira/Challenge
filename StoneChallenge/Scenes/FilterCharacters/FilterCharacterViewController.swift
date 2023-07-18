@@ -61,7 +61,7 @@ class FilterCharacterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
+        
         setupLayout()
         setupPickerView()
         setupDissmissKeyboard()
@@ -79,6 +79,7 @@ class FilterCharacterViewController: UIViewController {
     }
     
     // MARK: - Private Methods
+    
     private func setupDissmissKeyboard() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
