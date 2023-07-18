@@ -35,6 +35,8 @@ Desafio feito usando a arquitetura MVVM e coordinator para navegação, teste un
 
 ![img4](https://github.com/willmoreira/StoneChallenge/assets/32074474/9b930484-bff3-46ba-bdcb-905d29e9dfbd)
 
+Feito tratativa de sem internet antes da requisição mostrando para o usuario um alerta e disponibilizando o botão para fazer uma nova requisição.
+
 TELA 1 (Listagem de personagens) - Feito paginação da lista, loading antes da requisição, loading quando chega ao fim da primeira requisição até obter o resultado da segunda, célula customizada com a imagem do personagem com alpha de sombreamento, disclosureIndicator habilitado indicando que há clique na célula.
 No caso do retorno da tela de filtro, se a lista está vazia mostro um alerta com esse feedback para o usuário
 e habilito um botão para fazer o refresh, fazendo a requisição inicial sem parâmetros.
