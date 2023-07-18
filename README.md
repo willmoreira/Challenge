@@ -28,24 +28,25 @@ TELA 3 (Detalhes do personagem) - É a tela que mostra mais informações do per
 
 # Requisitos
 
-O app foi desenvolvido no Xcode 13.4, recomendo usar essa versão ou superior.
-O target de versão do iOS é o 15.5 ou superior
+Desenvolvi o app na versão do Xcode 13.4, recomendo usar essa versão ou superior.
+O target de versão do iOS é o 15.5 ou superior.
 
 # Considerações e observações
 
 Desafio feito seguindo os requisitos propostos:
 
  - A arquitetura usada foi MVVM com coordinator para navegação. 
- - Usado sempre viewCode para criar componentes visuais
- - Teste unitários realizado e teste de UI realizados nas camadas de View como mostra a imagem a seguir.
+ - Usei sempre viewCode para criar componentes visuais
+ - Implementei teste unitários e teste de UI nas camadas de View como mostra a imagem a seguir.
 
 ![img4](https://github.com/willmoreira/StoneChallenge/assets/32074474/9b930484-bff3-46ba-bdcb-905d29e9dfbd)
 
- - Feito validação de internet antes da requisição mostrando para o usuário um alerta e disponibilizando o botão para fazer uma nova requisição.
- - Feito tratamento de ao voltar da tela de filtro para a tela de listar personagens mostra a lista do início.
- - Possibilidade de fazer a requisição sem filtros usando refreshControl na tela de listagem.
+ - Implementei validação de internet antes da requisição mostrando para o usuário um alerta e disponibilizando o botão para fazer uma nova requisição.
+ - Implementei tratamento de ao voltar da tela de filtro para a tela de listar personagens mostra a lista do início.
+ - Implementei a possibilidade de fazer a requisição sem filtros usando refreshControl na tela de listagem.
  - Toque na tela de filtro que permite recolher o teclado.
-
+ - Validei o layout nos extremos da tela, tanto no menor tamanho possível do iPhone 8 (pela versão de corte) quanto no iPad Pro.
+ - Instalei SwiftLint no projeto para evidenciar possiveis atenções de erros de digitação, espaços, etc.
 
 ## Telas com detalhes de fluxo e implementação
 
