@@ -33,6 +33,8 @@ O target de versão do iOS é o 15.5 ou superior
 
 Desafio feito usando a arquitetura MVVM e coordinator para navegação, teste unitários realizado e teste de UI realizados nas camadas de View como mostra a imagem a seguir.
 
+![img4](https://github.com/willmoreira/StoneChallenge/assets/32074474/9b930484-bff3-46ba-bdcb-905d29e9dfbd)
+
 TELA 1 (Listagem de personagens) - Feito paginação da lista, loading antes da requisição, loading quando chega ao fim da primeira requisição até obter o resultado da segunda, célula customizada com a imagem do personagem com alpha de sombreamento, disclosureIndicator habilitado indicando que há clique na célula.
 No caso do retorno da tela de filtro, se a lista está vazia mostro um alerta com esse feedback para o usuário
 e habilito um botão para fazer o refresh, fazendo a requisição inicial sem parâmetros.
