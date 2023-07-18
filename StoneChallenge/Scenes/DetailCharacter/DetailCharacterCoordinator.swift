@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol DetailCharacterCoordinatorDelegate: AnyObject {
-
-}
-
 class DetailCharacterCoordinator {
     
     // MARK: - Properties
@@ -27,13 +23,6 @@ class DetailCharacterCoordinator {
     
     func start() -> UIViewController {
         let viewController = DetailCharacterViewController()
-        let viewModel = DetailCharacterViewModel()
-        viewModel.coordinator = self
-        viewController.viewModel = viewModel
         return viewController
     }
-}
-
-extension DetailCharacterCoordinator: DetailCharacterCoordinatorDelegate {
-
 }

@@ -12,7 +12,7 @@ class DetailCharacterViewController: UIViewController {
     
     // MARK: - Properties
 
-    var viewModel: DetailCharacterViewModelDelegate?
+    //var viewModel: DetailCharacterViewModelDelegate?
     var character: CharactersResponse.Result? {
         didSet{
             updateMovieImage()

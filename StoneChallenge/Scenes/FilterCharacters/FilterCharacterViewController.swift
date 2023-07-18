@@ -10,9 +10,9 @@ import UIKit
 class FilterCharacterViewController: UIViewController {
     
     // MARK: - Properties
-
+    
     var viewModel: FilterCharacterViewModelDelegate?
-
+    
     private let vwContainer: UIView = {
         let vwContainer = UIView()
         vwContainer.backgroundColor = UIColor(red: 180/255.0, green: 214/255.0, blue: 91/255.0, alpha: 1.0)
@@ -23,12 +23,14 @@ class FilterCharacterViewController: UIViewController {
     private let tfFilter: UITextField = {
         let tfFilter = UITextField()
         tfFilter.placeholder = "Digite o nome para buscar"
+        tfFilter.accessibilityIdentifier = "tfFilter"
         tfFilter.borderStyle = .roundedRect
         return tfFilter
     }()
     
     private let pckVwFilter: UIPickerView = {
         let pckVwFilter = UIPickerView()
+        pckVwFilter.accessibilityIdentifier = "pckVwFilter"
         return pckVwFilter
     }()
     
@@ -40,6 +42,7 @@ class FilterCharacterViewController: UIViewController {
         btnFilter.layer.borderWidth = 1.0
         btnFilter.layer.borderColor = UIColor.black.cgColor
         btnFilter.backgroundColor = UIColor(red:245/255.0, green: 237/255.0, blue: 117/255.0, alpha: 1.0)
+        btnFilter.accessibilityIdentifier = "btnFilter"
         btnFilter.clipsToBounds = true
         return btnFilter
     }()
@@ -58,8 +61,10 @@ class FilterCharacterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         
         setupLayout()
         setupPickerView()
+        setupDissmissKeyboard()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,21 +79,25 @@ class FilterCharacterViewController: UIViewController {
     }
     
     // MARK: - Private Methods
-  
+    private func setupDissmissKeyboard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
     private func setupLayout() {
-       
+        
         view.backgroundColor = .white
         
         vwContainer.translatesAutoresizingMaskIntoConstraints = false
         tfFilter.translatesAutoresizingMaskIntoConstraints = false
         btnFilter.translatesAutoresizingMaskIntoConstraints = false
         imgVwBackground.translatesAutoresizingMaskIntoConstraints = false
-
+        
         view.addSubview(imgVwBackground)
         view.addSubview(vwContainer)
         vwContainer.addSubview(tfFilter)
         vwContainer.addSubview(btnFilter)
-
+        
         NSLayoutConstraint.activate([
             imgVwBackground.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             imgVwBackground.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -114,7 +123,7 @@ class FilterCharacterViewController: UIViewController {
         ])
         
         view.layoutIfNeeded()
-
+        
         btnFilter.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
     }
     
@@ -147,6 +156,10 @@ class FilterCharacterViewController: UIViewController {
         let filterText = tfFilter.text ?? ""
         viewModel?.filterCharacters(name: filterText , status: selectedOption)
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 

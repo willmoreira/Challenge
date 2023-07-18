@@ -21,14 +21,6 @@ class FilterCharacterViewModel: FilterCharacterViewModelDelegate {
     // MARK: - Properties
 
     weak var delegate: FilterCharacterViewModelActionsDelegate?
-    var coordinator: FilterCharacterCoordinatorDelegate?
-    let service: FilterCharacterService
-  
-    // MARK: - Initialization
-
-    init(service: FilterCharacterService = FilterCharacterService()) {
-        self.service = service
-    }
     
     // MARK: - Public Methods
     

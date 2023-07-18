@@ -92,4 +92,3 @@ class NotebookView: UIView {
         emptyIndex += 1
     }
 }
-

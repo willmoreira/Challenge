@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol FilterCharacterCoordinatorDelegate: AnyObject {
-
-}
-
 class FilterCharacterCoordinator {
     
     // MARK: - Properties
@@ -28,12 +24,7 @@ class FilterCharacterCoordinator {
     func start() -> UIViewController {
         let viewController = FilterCharacterViewController()
         let viewModel = FilterCharacterViewModel()
-        viewModel.coordinator = self
         viewController.viewModel = viewModel
         return viewController
     }
-}
-
-extension FilterCharacterCoordinator: FilterCharacterCoordinatorDelegate {
-  
 }

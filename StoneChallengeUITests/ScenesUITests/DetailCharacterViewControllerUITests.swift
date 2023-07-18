@@ -7,7 +7,7 @@
 
 import XCTest
 
-class DetailCharacterUITests: XCTestCase {
+class DetailCharacterViewControllerUITests: XCTestCase {
     
     var app: XCUIApplication!
     
