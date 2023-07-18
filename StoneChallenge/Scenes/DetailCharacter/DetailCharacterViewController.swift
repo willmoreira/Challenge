@@ -21,12 +21,15 @@ class DetailCharacterViewController: UIViewController {
     
     private var imgCharacter: UIImageView = {
         let imgCharacter = UIImageView()
+        imgCharacter.accessibilityIdentifier = "imgCharacter"
         return imgCharacter
     }()
     
     private let imgBackground: UIImageView = {
         let imgBackground = UIImageView()
-        imgBackground.image = UIImage(named: "ImgBackgroundDetail")
+        imgBackground.accessibilityIdentifier = "imgBackgroundDetail"
+        imgBackground.image = UIImage(named: "imgBackgroundDetail")
+        
         return imgBackground
     }()
     

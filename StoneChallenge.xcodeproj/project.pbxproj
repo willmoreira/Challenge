@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DA42EA22A66247900B17D38 /* ListCharactersViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA42EA12A66247900B17D38 /* ListCharactersViewControllerUITests.swift */; };
+		3DA42EA42A66252600B17D38 /* DetailCharacterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA42EA32A66252600B17D38 /* DetailCharacterUITests.swift */; };
 		3DAFCB692A635D8F00DAAE04 /* NotebookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB682A635D8F00DAAE04 /* NotebookView.swift */; };
 		3DAFCB6B2A645A9F00DAAE04 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB6A2A645A9F00DAAE04 /* ApiError.swift */; };
-		3DAFCB722A658FB600DAAE04 /* ListCharactersViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB712A658FB600DAAE04 /* ListCharactersViewControllerTest.swift */; };
+		3DAFCB722A658FB600DAAE04 /* ListCharactersViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB712A658FB600DAAE04 /* ListCharactersViewModelTest.swift */; };
 		3DAFCB752A6590F600DAAE04 /* ListCharactersServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB742A6590F600DAAE04 /* ListCharactersServiceSpy.swift */; };
+		3DAFCB7B2A65C40C00DAAE04 /* ListCharactersCoordinatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB7A2A65C40C00DAAE04 /* ListCharactersCoordinatorSpy.swift */; };
+		3DAFCB7D2A65C73600DAAE04 /* ListCharactersViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFCB7C2A65C73600DAAE04 /* ListCharactersViewControllerSpy.swift */; };
+		3DAFCB882A66222300DAAE04 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3DAFCB872A66222300DAAE04 /* SDWebImage */; };
 		3DB50C412A61CE30005C48F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB50C402A61CE30005C48F8 /* AppDelegate.swift */; };
 		3DB50C432A61CE30005C48F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB50C422A61CE30005C48F8 /* SceneDelegate.swift */; };
 		3DB50C4A2A61CE33005C48F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB50C492A61CE33005C48F8 /* Assets.xcassets */; };
@@ -24,7 +29,6 @@
 		3DB50C792A61D10E005C48F8 /* ListCharactersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB50C782A61D10E005C48F8 /* ListCharactersCoordinator.swift */; };
 		3DE0DF522A61DC2D00BA7473 /* TableViewCharacterCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE0DF512A61DC2D00BA7473 /* TableViewCharacterCells.swift */; };
 		3DE0DF552A61E30B00BA7473 /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE0DF542A61E30B00BA7473 /* CharactersResponse.swift */; };
-		3DE0DF582A61F19400BA7473 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3DE0DF572A61F19400BA7473 /* SDWebImage */; };
 		3DE0DF5C2A6230F800BA7473 /* DetailCharacterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE0DF5B2A6230F800BA7473 /* DetailCharacterCoordinator.swift */; };
 		3DE0DF5E2A62310A00BA7473 /* DetailCharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE0DF5D2A62310A00BA7473 /* DetailCharacterService.swift */; };
 		3DE0DF602A62312000BA7473 /* DetailCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE0DF5F2A62312000BA7473 /* DetailCharacterViewController.swift */; };
@@ -53,11 +57,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3DA42EA12A66247900B17D38 /* ListCharactersViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersViewControllerUITests.swift; sourceTree = "<group>"; };
+		3DA42EA32A66252600B17D38 /* DetailCharacterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharacterUITests.swift; sourceTree = "<group>"; };
 		3DAFCB682A635D8F00DAAE04 /* NotebookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookView.swift; sourceTree = "<group>"; };
 		3DAFCB6A2A645A9F00DAAE04 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
-		3DAFCB712A658FB600DAAE04 /* ListCharactersViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersViewControllerTest.swift; sourceTree = "<group>"; };
+		3DAFCB712A658FB600DAAE04 /* ListCharactersViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersViewModelTest.swift; sourceTree = "<group>"; };
 		3DAFCB742A6590F600DAAE04 /* ListCharactersServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersServiceSpy.swift; sourceTree = "<group>"; };
 		3DAFCB792A6597CC00DAAE04 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3DAFCB7A2A65C40C00DAAE04 /* ListCharactersCoordinatorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersCoordinatorSpy.swift; sourceTree = "<group>"; };
+		3DAFCB7C2A65C73600DAAE04 /* ListCharactersViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersViewControllerSpy.swift; sourceTree = "<group>"; };
 		3DB50C3D2A61CE30005C48F8 /* StoneChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoneChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB50C402A61CE30005C48F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DB50C422A61CE30005C48F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DE0DF582A61F19400BA7473 /* SDWebImage in Frameworks */,
+				3DAFCB882A66222300DAAE04 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				3DAFCB732A6590CD00DAAE04 /* Mocks */,
-				3DAFCB712A658FB600DAAE04 /* ListCharactersViewControllerTest.swift */,
+				3DAFCB712A658FB600DAAE04 /* ListCharactersViewModelTest.swift */,
 			);
 			path = ListCharactersTests;
 			sourceTree = "<group>";
@@ -132,8 +140,19 @@
 			isa = PBXGroup;
 			children = (
 				3DAFCB742A6590F600DAAE04 /* ListCharactersServiceSpy.swift */,
+				3DAFCB7A2A65C40C00DAAE04 /* ListCharactersCoordinatorSpy.swift */,
+				3DAFCB7C2A65C73600DAAE04 /* ListCharactersViewControllerSpy.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		3DAFCB802A65D65A00DAAE04 /* ScenesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3DA42EA12A66247900B17D38 /* ListCharactersViewControllerUITests.swift */,
+				3DA42EA32A66252600B17D38 /* DetailCharacterUITests.swift */,
+			);
+			path = ScenesUITests;
 			sourceTree = "<group>";
 		};
 		3DB50C342A61CE30005C48F8 = {
@@ -183,6 +202,7 @@
 		3DB50C602A61CE33005C48F8 /* StoneChallengeUITests */ = {
 			isa = PBXGroup;
 			children = (
+				3DAFCB802A65D65A00DAAE04 /* ScenesUITests */,
 				3DB50C612A61CE33005C48F8 /* StoneChallengeUITests.swift */,
 				3DB50C632A61CE33005C48F8 /* StoneChallengeUITestsLaunchTests.swift */,
 			);
@@ -268,7 +288,7 @@
 			);
 			name = StoneChallenge;
 			packageProductDependencies = (
-				3DE0DF572A61F19400BA7473 /* SDWebImage */,
+				3DAFCB872A66222300DAAE04 /* SDWebImage */,
 			);
 			productName = StoneChallenge;
 			productReference = 3DB50C3D2A61CE30005C48F8 /* StoneChallenge.app */;
@@ -343,7 +363,7 @@
 			);
 			mainGroup = 3DB50C342A61CE30005C48F8;
 			packageReferences = (
-				3DE0DF562A61F19400BA7473 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				3DAFCB862A66222300DAAE04 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 3DB50C3E2A61CE30005C48F8 /* Products */;
 			projectDirPath = "";
@@ -412,7 +432,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DAFCB722A658FB600DAAE04 /* ListCharactersViewControllerTest.swift in Sources */,
+				3DAFCB722A658FB600DAAE04 /* ListCharactersViewModelTest.swift in Sources */,
+				3DAFCB7B2A65C40C00DAAE04 /* ListCharactersCoordinatorSpy.swift in Sources */,
+				3DAFCB7D2A65C73600DAAE04 /* ListCharactersViewControllerSpy.swift in Sources */,
 				3DAFCB752A6590F600DAAE04 /* ListCharactersServiceSpy.swift in Sources */,
 				3DB50C582A61CE33005C48F8 /* StoneChallengeTests.swift in Sources */,
 			);
@@ -422,6 +444,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA42EA42A66252600B17D38 /* DetailCharacterUITests.swift in Sources */,
+				3DA42EA22A66247900B17D38 /* ListCharactersViewControllerUITests.swift in Sources */,
 				3DB50C642A61CE33005C48F8 /* StoneChallengeUITestsLaunchTests.swift in Sources */,
 				3DB50C622A61CE33005C48F8 /* StoneChallengeUITests.swift in Sources */,
 			);
@@ -740,7 +764,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3DE0DF562A61F19400BA7473 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		3DAFCB862A66222300DAAE04 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
 			requirement = {
@@ -751,9 +775,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3DE0DF572A61F19400BA7473 /* SDWebImage */ = {
+		3DAFCB872A66222300DAAE04 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3DE0DF562A61F19400BA7473 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			package = 3DAFCB862A66222300DAAE04 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */

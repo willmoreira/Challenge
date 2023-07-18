@@ -19,6 +19,4 @@ class ListCharactersServiceSpy: ListCharactersServiceProtocol {
         }
         completion(spyRequestResult)
     }
-    
-    
 }

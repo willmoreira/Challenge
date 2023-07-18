@@ -30,7 +30,7 @@ class ListCharactersCoordinator {
         let viewController = ListCharactersViewController()
         let viewModel = ListCharactersViewModel()
         viewModel.coordinator = self
-        viewModel.viewController = viewController
+        viewModel.delegate = viewController
         viewController.viewModel = viewModel
         return viewController
     }

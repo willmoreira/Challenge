@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ListCharactersViewControllerDelegate: AnyObject {
-    func updateListCharacter()
+    func updateListCharacterDelegate()
 }
 
 protocol ListCharactersViewModelDelegate: AnyObject {
@@ -23,17 +23,17 @@ protocol ListCharactersViewModelDelegate: AnyObject {
 class ListCharactersViewModel: ListCharactersViewModelDelegate {
     
     // MARK: - Properties
-    
-    weak var viewController: ListCharactersViewControllerDelegate?
+
+    weak var delegate: ListCharactersViewControllerDelegate?
     var coordinator: ListCharactersCoordinatorDelegate?
     let service: ListCharactersServiceProtocol
     
-    var name: String?
-    var status: String?
-    var page: Int = 1
-    var totalPages: Int = 1
-    var charactersList: [CharactersResponse.Result] = []
-    var isLoadNextPageInProgress = false
+    private var name: String?
+    private var status: String?
+    private var page: Int = 1
+    private var totalPages: Int = 1
+    private var charactersList: [CharactersResponse.Result] = []
+    private var isLoadNextPageInProgress = false
     
     // MARK: - Initialization
     
@@ -55,7 +55,7 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
                     self.totalPages = charactersResponseInfo.pages
                     self.charactersList.append(contentsOf: charactersResponseResults)
                 }
-                self.viewController?.updateListCharacter()
+                self.delegate?.updateListCharacterDelegate()
                 self.isLoadNextPageInProgress = false
             case .failure:
                 break
@@ -77,6 +77,7 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
     }
     
     func goesToDetailCharacter(_ index: Int) {
+        guard index < charactersList.count else { return }
         coordinator?.goesToDetailCharacter(result: charactersList[index])
     }
     

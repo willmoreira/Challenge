@@ -12,11 +12,12 @@ class ListCharactersViewController: UIViewController {
     
     // MARK: - Properties
     
-    private lazy var btnfilter: UIButton = {
-        let btnfilter = UIButton(type: .custom)
-        btnfilter.setImage(UIImage(named: "filter"), for: .normal)
-        btnfilter.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
-        return btnfilter
+    private lazy var btnFilter: UIButton = {
+        let btnFilter = UIButton(type: .custom)
+        btnFilter.setImage(UIImage(named: "filter"), for: .normal)
+        btnFilter.accessibilityIdentifier = "btnfilter"
+        btnFilter.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
+        return btnFilter
     }()
     
     private lazy var btnReloadCharacters: UIButton = {
@@ -36,11 +37,13 @@ class ListCharactersViewController: UIViewController {
     private lazy var tblVwListCharacter: UITableView = {
         let tblVwListCharacter = UITableView()
         tblVwListCharacter.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tblVwListCharacter.accessibilityIdentifier = "tblVwListCharacter"
         return tblVwListCharacter
     }()
     
     private var activityIndicator = UIActivityIndicatorView(style: .large)
     private let refreshControl = UIRefreshControl()
+    private var isShowTheFirstCell = false
     
     var viewModel: ListCharactersViewModelDelegate?
 
@@ -93,7 +96,7 @@ class ListCharactersViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btnfilter)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btnFilter)
     }
     
     private func setupReloadCharacterButton() {
@@ -194,12 +197,17 @@ extension ListCharactersViewController: UITableViewDelegate, UITableViewDataSour
 // MARK: - ListCharactersViewControllerDelegate
 
 extension ListCharactersViewController: ListCharactersViewControllerDelegate {
-    func updateListCharacter() {
+    func updateListCharacterDelegate() {
         activityIndicator.stopAnimating()
         tblVwListCharacter.reloadData()
+        
         if viewModel?.characterListSize() == 0 {
             btnReloadCharacters.isHidden = false
             showAlert()
+        } else if isShowTheFirstCell {
+            self.isShowTheFirstCell = false
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.tblVwListCharacter.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }
 }
@@ -207,6 +215,7 @@ extension ListCharactersViewController: ListCharactersViewControllerDelegate {
 extension ListCharactersViewController: FilterCharacterViewModelActionsDelegate {
     func updateListCharacter(name: String, status: String) {
         activityIndicator.startAnimating()
+        isShowTheFirstCell = true
         viewModel?.requestCharacterListInitial(name: name, status: status)
     }
 }
