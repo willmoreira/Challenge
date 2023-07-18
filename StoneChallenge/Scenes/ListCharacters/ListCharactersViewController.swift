@@ -122,8 +122,8 @@ class ListCharactersViewController: UIViewController {
         ])
     }
     
-    private func showAlert() {
-        let alertController = UIAlertController(title: "Busca sem resultado", message: "Nenhum personagem foi encontrado", preferredStyle: .alert)
+    private func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             alertController.dismiss(animated: true, completion: nil)
         }
@@ -197,19 +197,27 @@ extension ListCharactersViewController: UITableViewDelegate, UITableViewDataSour
 // MARK: - ListCharactersViewControllerDelegate
 
 extension ListCharactersViewController: ListCharactersViewControllerDelegate {
+    func withoutInternet() {
+        activityIndicator.stopAnimating()
+        btnReloadCharacters.isHidden = false
+        showAlert(title: "Ops! sem internet", message: "Parece que você esta sem internet!")
+    }
+    
     func updateListCharacterDelegate() {
         activityIndicator.stopAnimating()
         tblVwListCharacter.reloadData()
         
         if viewModel?.characterListSize() == 0 {
             btnReloadCharacters.isHidden = false
-            showAlert()
+            showAlert(title: "Busca sem resultado!", message: "Nenhum resultado encontrado")
         } else if isToShowTheFirstCell {
             self.isToShowTheFirstCell = false
             let indexPath = IndexPath(row: 0, section: 0)
             self.tblVwListCharacter.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }
+    
+    
 }
 
 // MARK: - FilterCharacterViewModelActionsDelegate

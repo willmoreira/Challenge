@@ -82,7 +82,7 @@ class DetailCharacterViewController: UIViewController {
         view.addSubview(vwContainer)
         
         NSLayoutConstraint.activate([
-            //TODO: validar no iphone 8
+            //TODO: validar no iphone 8 e portrait
             imgBackground.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             imgBackground.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             imgBackground.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
