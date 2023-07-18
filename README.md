@@ -2,16 +2,18 @@
 
 # Contexto do App
 
-O app tem a finalidade de consumir a api do desenho Rick and Morty e mostrar personagens possibilitando consultá-los e obter mais características sobre um personagem escolhido.
+O app tem a finalidade de consumir a api do desenho Rick and Morty e mostrar personagens, possibilitando consultá-los e obter mais características sobre um personagem escolhido.
 
 # Dependências
 
-Fazer download ou clonar o projeto, va até a pasta do projeto e clicar no arquivo StoneChallenge.xcodeproj, ao abrir o projeto no xcode.
-Verificar a lib SDWebImage, se caso ela não estiver no projeto adicionar via pod ou SPM a biblioteca, essa lib faz o tratamento de imagens a partir de uma url no projeto.
+Fazer download ou clonar o projeto, vá até a pasta do projeto e clicar no arquivo StoneChallenge.xcodeproj, ao abrir o projeto no xcode.
+
+Verificar a lib SDWebImage, caso ela não estiver no projeto adicionar via pod ou SPM a biblioteca, essa lib faz o tratamento de imagens a partir de uma url no projeto.
 
 # Uso
 
 A aplicação contempla 3 telas:
+
 TELA 1 (Listagem de personagens) - É a tela inicial da aplicação que lista os personagens, contem um botão de filtro localizado na direita da barra superior de navegação que ao ser acionado abre a tela de filtro, quando um personagem da lista e clicado abre a tela de detalhes do personagem.
 
 ![img](https://github.com/willmoreira/StoneChallenge/assets/32074474/5ea0328d-ae8c-40b3-bd9d-b5beb76cbac3)
@@ -31,13 +33,24 @@ O target de versão do iOS é o 15.5 ou superior
 
 # Considerações e observações
 
-Desafio feito usando a arquitetura MVVM e coordinator para navegação, teste unitários realizado e teste de UI realizados nas camadas de View como mostra a imagem a seguir.
+Desafio feito seguindo os requisitos propostos:
+
+ - A arquitetura usada foi MVVM com coordinator para navegação. 
+ - Usado sempre viewCode para criar componentes visuais
+ - Teste unitários realizado e teste de UI realizados nas camadas de View como mostra a imagem a seguir.
 
 ![img4](https://github.com/willmoreira/StoneChallenge/assets/32074474/9b930484-bff3-46ba-bdcb-905d29e9dfbd)
 
-Feito tratativa de sem internet antes da requisição mostrando para o usuario um alerta e disponibilizando o botão para fazer uma nova requisição.
+ - Feito validação de internet antes da requisição mostrando para o usuário um alerta e disponibilizando o botão para fazer uma nova requisição.
+ - Feito tratamento de ao voltar da tela de filtro para a tela de listar personagens mostra a lista do início.
+ - Possibilidade de fazer a requisição sem filtros usando refreshControl na tela de listagem.
+ - Toque na tela de filtro que permite recolher o teclado.
+
+
+## Telas com detalhes de fluxo e implementação
 
 TELA 1 (Listagem de personagens) - Feito paginação da lista, loading antes da requisição, loading quando chega ao fim da primeira requisição até obter o resultado da segunda, célula customizada com a imagem do personagem com alpha de sombreamento, disclosureIndicator habilitado indicando que há clique na célula.
+
 No caso do retorno da tela de filtro, se a lista está vazia mostro um alerta com esse feedback para o usuário
 e habilito um botão para fazer o refresh, fazendo a requisição inicial sem parâmetros.
 Lembrando que refreshTableView também tem a mesma ação do botão.
@@ -48,9 +61,3 @@ Ao filtrar ou por status, ou por nome e status retorna a tela de lista com o res
 TELA 3 (Detalhes do personagem) - Tentei mostrar as características do personagem fazendo uma folha de caderno mostrando a imagem e as informações escritas nesse "papel".
 
 Agradeço a oportunidade, tenho algumas dificuldades, as reconheço, mas acredito que uma oportunidade em um local onde tenha referências técnicas, eu possa evoluir, me desenvolver e contribuir.
-
-
-
-
-
-
