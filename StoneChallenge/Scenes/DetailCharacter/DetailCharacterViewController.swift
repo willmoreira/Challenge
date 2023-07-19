@@ -20,6 +20,7 @@ class DetailCharacterViewController: UIViewController {
     
     private var imgCharacter: UIImageView = {
         let imgCharacter = UIImageView()
+        imgCharacter.layer.cornerRadius = 10
         imgCharacter.accessibilityIdentifier = ConfigurationStrings.imgCharacter
         return imgCharacter
     }()
@@ -39,7 +40,6 @@ class DetailCharacterViewController: UIViewController {
     
     private let vwNotebook: NotebookView = {
         let vwNotebook = NotebookView()
-        vwNotebook.frame = CGRect(x: 0, y: 0, width: 250, height: 300)
         return vwNotebook
     }()
     
@@ -51,15 +51,17 @@ class DetailCharacterViewController: UIViewController {
         setupLayout()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupBackButton()
-    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        imgCharacter.layer.cornerRadius = 10
         imgCharacter.clipsToBounds = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+
+        AppUtility.lockOrientation(.portrait)
+        setupBackButton()
     }
     
     // MARK: - Private Methods
@@ -93,7 +95,7 @@ class DetailCharacterViewController: UIViewController {
             
             imgCharacter.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             imgCharacter.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
-            imgCharacter.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            imgCharacter.widthAnchor.constraint(equalToConstant: 200),
             imgCharacter.heightAnchor.constraint(equalTo: imgCharacter.widthAnchor),
             
             vwContainer.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),

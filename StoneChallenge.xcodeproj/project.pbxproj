@@ -11,6 +11,7 @@
 		3DA42EA22A66247900B17D38 /* ListCharactersViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA42EA12A66247900B17D38 /* ListCharactersViewControllerUITests.swift */; };
 		3DA42EA42A66252600B17D38 /* DetailCharacterViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA42EA32A66252600B17D38 /* DetailCharacterViewControllerUITests.swift */; };
 		3DA42EAC2A66345600B17D38 /* FilterCharacterViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA42EAB2A66345600B17D38 /* FilterCharacterViewControllerUITests.swift */; };
+		3DACBE9D2A6844A90041EB8C /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DACBE9C2A6844A90041EB8C /* AppUtility.swift */; };
 		3DAE75642A66424100B28DA0 /* DetailCharacterCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE75632A66424100B28DA0 /* DetailCharacterCoordinatorTests.swift */; };
 		3DAE75672A66437500B28DA0 /* FilterCharacterCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE75662A66437500B28DA0 /* FilterCharacterCoordinatorTests.swift */; };
 		3DAE756A2A66E12700B28DA0 /* ObjectSeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE75692A66E12700B28DA0 /* ObjectSeeds.swift */; };
@@ -67,6 +68,7 @@
 		3DA42EA12A66247900B17D38 /* ListCharactersViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersViewControllerUITests.swift; sourceTree = "<group>"; };
 		3DA42EA32A66252600B17D38 /* DetailCharacterViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharacterViewControllerUITests.swift; sourceTree = "<group>"; };
 		3DA42EAB2A66345600B17D38 /* FilterCharacterViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCharacterViewControllerUITests.swift; sourceTree = "<group>"; };
+		3DACBE9C2A6844A90041EB8C /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		3DAE75632A66424100B28DA0 /* DetailCharacterCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharacterCoordinatorTests.swift; sourceTree = "<group>"; };
 		3DAE75662A66437500B28DA0 /* FilterCharacterCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCharacterCoordinatorTests.swift; sourceTree = "<group>"; };
 		3DAE75692A66E12700B28DA0 /* ObjectSeeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSeeds.swift; sourceTree = "<group>"; };
@@ -133,6 +135,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DACBE9B2A68447B0041EB8C /* AppUtility */ = {
+			isa = PBXGroup;
+			children = (
+				3DACBE9C2A6844A90041EB8C /* AppUtility.swift */,
+			);
+			path = AppUtility;
+			sourceTree = "<group>";
+		};
 		3DAE75622A66421A00B28DA0 /* DetailCharacterTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +217,7 @@
 		3DB3C4682A679F7C005F6159 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				3DACBE9B2A68447B0041EB8C /* AppUtility */,
 				3DB3C4792A67A898005F6159 /* Strings */,
 				3DB3C46C2A679FCD005F6159 /* Protocols */,
 				3DB3C46B2A679FB1005F6159 /* Extensions */,
@@ -527,6 +538,7 @@
 				3DE0DF6A2A6231C100BA7473 /* FilterCharacterViewModel.swift in Sources */,
 				3DB50C792A61D10E005C48F8 /* ListCharactersCoordinator.swift in Sources */,
 				3DE0DF602A62312000BA7473 /* DetailCharacterViewController.swift in Sources */,
+				3DACBE9D2A6844A90041EB8C /* AppUtility.swift in Sources */,
 				3DB3C47B2A67ADB5005F6159 /* ConfigurationStrings.swift in Sources */,
 				3DE0DF5C2A6230F800BA7473 /* DetailCharacterCoordinator.swift in Sources */,
 				3DAFCB692A635D8F00DAAE04 /* NotebookView.swift in Sources */,
@@ -728,8 +740,8 @@
 				INFOPLIST_FILE = StoneChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -755,8 +767,8 @@
 				INFOPLIST_FILE = StoneChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
