@@ -47,7 +47,8 @@ Desafio feito seguindo os requisitos propostos:
  - Toque na tela de filtro que permite recolher o teclado.
  - Validei o layout nos extremos da tela, tanto no menor tamanho possível do iPhone 8 (pela versão de corte) quanto no iPad Pro.
  - Instalei SwiftLint no projeto para evidenciar possiveis atenções de erros de digitação, espaços, etc.
-
+ - Implementei internacionalização português e inglês de strings e centralizado strings em unico arquivo para organização do projeto.
+ 
 ## Telas com detalhes de fluxo e implementação
 
 TELA 1 (Listagem de personagens) - Feito paginação da lista, loading antes da requisição, loading quando chega ao fim da primeira requisição até obter o resultado da segunda, célula customizada com a imagem do personagem com alpha de sombreamento, disclosureIndicator habilitado indicando que há clique na célula.
