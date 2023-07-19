@@ -17,8 +17,8 @@ class ListCharactersService: ListCharactersServiceProtocol {
     
     func doRequestListCharacters(page: Int, name: String? = nil, status: String? = nil, completion: @escaping (Result<CharactersResponse, ApiError>) -> Void) {
         
-        let nameValid = name ?? ""
-        let statusValid = status ?? ""
+        let nameValid = name ?? ConfigurationStrings.emptyString
+        let statusValid = status ?? ConfigurationStrings.emptyString
         let urlString = "https://rickandmortyapi.com/api/character/?page=\(page)&name=\(nameValid)&status=\(statusValid)"
         let session = URLSession.shared
         
@@ -28,17 +28,17 @@ class ListCharactersService: ListCharactersServiceProtocol {
         }
         var request = URLRequest(url: url)
         
-        request.httpMethod = "GET"
+        request.httpMethod = ConfigurationStrings.getMethod
         
-        let task = session.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, _, error in
             if let error = error {
                 completion(.failure(.unknown))
-                print("Erro: \(error.localizedDescription)")
+                print(ConfigurationStrings.ErrorResponse + "\(error.localizedDescription)")
                 return
             }
             guard let data = data else {
                 completion(.failure(.noResponse))
-                print("Não há dados na resposta")
+                print(ConfigurationStrings.MessageErrorData)
                 return
             }
             do {

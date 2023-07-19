@@ -94,7 +94,6 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
         return isReachable && !needsConnection
     }
 
-    
     func requestCharacterListInitial(name: String, status: String) {
         page = 1
         totalPages = 1

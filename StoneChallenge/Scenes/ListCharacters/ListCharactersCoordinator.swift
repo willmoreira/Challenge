@@ -45,7 +45,7 @@ extension ListCharactersCoordinator: ListCharactersCoordinatorDelegate {
         guard let filterCharacterViewController = filterCharacterCoordinator.start() as? FilterCharacterViewController else { return }
         guard let navigationControllerLast = navigationController.viewControllers.last as? FilterCharacterViewModelActionsDelegate else { return }
         filterCharacterViewController.viewModel?.passDelegateFilterCharacter(delegate: navigationControllerLast)
-        let backButton = UIBarButtonItem(title: "Voltar", style: .plain, target: nil, action: nil)
+        let backButton = UIBarButtonItem(title: ProjectStrings.back.localized, style: .plain, target: nil, action: nil)
         navigationController.navigationItem.backBarButtonItem = backButton
         navigationController.pushViewController(filterCharacterViewController, animated: true)
     }
@@ -54,7 +54,7 @@ extension ListCharactersCoordinator: ListCharactersCoordinatorDelegate {
         let detailCharacterCoordinator = DetailCharacterCoordinator()
         guard let detailCharacterViewController = detailCharacterCoordinator.start() as? DetailCharacterViewController else { return }
         detailCharacterViewController.character = result
-        let backButton = UIBarButtonItem(title: "Voltar", style: .plain, target: nil, action: nil)
+        let backButton = UIBarButtonItem(title: ProjectStrings.back.localized, style: .plain, target: nil, action: nil)
         navigationController.navigationItem.backBarButtonItem = backButton
         navigationController.pushViewController(detailCharacterViewController, animated: true)
     }

@@ -14,15 +14,15 @@ class ListCharactersViewController: UIViewController {
     
     private lazy var btnFilter: UIButton = {
         let btnFilter = UIButton(type: .custom)
-        btnFilter.setImage(UIImage(named: "filter"), for: .normal)
-        btnFilter.accessibilityIdentifier = "btnfilter"
+        btnFilter.setImage(UIImage(named: ConfigurationStrings.filter), for: .normal)
+        btnFilter.accessibilityIdentifier = ConfigurationStrings.btnFilter
         btnFilter.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
         return btnFilter
     }()
     
     private lazy var btnReloadCharacters: UIButton = {
         let btnReloadCharacters = UIButton(type: .system)
-        btnReloadCharacters.setTitle("RECARREGAR LISTA", for: .normal)
+        btnReloadCharacters.setTitle(ProjectStrings.reloadList.localized, for: .normal)
         btnReloadCharacters.setTitleColor(.black, for: .normal)
         btnReloadCharacters.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         btnReloadCharacters.layer.borderWidth = 1.0
@@ -36,8 +36,8 @@ class ListCharactersViewController: UIViewController {
     
     private lazy var tblVwListCharacter: UITableView = {
         let tblVwListCharacter = UITableView()
-        tblVwListCharacter.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tblVwListCharacter.accessibilityIdentifier = "tblVwListCharacter"
+        tblVwListCharacter.register(UITableViewCell.self, forCellReuseIdentifier: ConfigurationStrings.cellDefault)
+        tblVwListCharacter.accessibilityIdentifier = ConfigurationStrings.tblVwListCharacter
         return tblVwListCharacter
     }()
     
@@ -57,7 +57,8 @@ class ListCharactersViewController: UIViewController {
         setupReloadCharacterButton()
         setupActivityIndicator()
         activityIndicator.startAnimating()
-        viewModel?.requestCharacterListInitial(name: "", status: "")
+        viewModel?.requestCharacterListInitial(name: ConfigurationStrings.emptyString,
+                                               status: ConfigurationStrings.emptyString)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,13 +75,13 @@ class ListCharactersViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setupBackButton() {
-        navigationItem.title = "Lista de Personagens"
+        navigationItem.title = ProjectStrings.listCharacter.localized
     }
     
     private func setupTableView() {
         tblVwListCharacter.delegate = self
         tblVwListCharacter.dataSource = self
-        tblVwListCharacter.register(TableViewCharacterCells.self, forCellReuseIdentifier: "TableViewCharacterCells")
+        tblVwListCharacter.register(TableViewCharacterCells.self, forCellReuseIdentifier: ConfigurationStrings.tableViewCharacterCells)
         tblVwListCharacter.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
         
@@ -124,7 +125,7 @@ class ListCharactersViewController: UIViewController {
     
     private func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+        let okAction = UIAlertAction(title: ProjectStrings.titleOk.localized, style: .default) { _ in
             alertController.dismiss(animated: true, completion: nil)
         }
         alertController.addAction(okAction)
@@ -186,7 +187,7 @@ extension ListCharactersViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCharacterCells", for: indexPath) as? TableViewCharacterCells else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ConfigurationStrings.tableViewCharacterCells, for: indexPath) as? TableViewCharacterCells else { return UITableViewCell() }
         if let character = viewModel?.getCharacter(index: indexPath.row) {
             cell.setupCell(name: character.name, urlImage: character.image)
         }
@@ -200,7 +201,8 @@ extension ListCharactersViewController: ListCharactersViewControllerDelegate {
     func withoutInternet() {
         activityIndicator.stopAnimating()
         btnReloadCharacters.isHidden = false
-        showAlert(title: "Ops! sem internet", message: "Parece que você esta sem internet!")
+        showAlert(title: ProjectStrings.titleAlertWithoutInternet.localized,
+                  message: ProjectStrings.messageAlertWithoutInternet.localized)
     }
     
     func updateListCharacterDelegate() {
@@ -209,7 +211,7 @@ extension ListCharactersViewController: ListCharactersViewControllerDelegate {
         
         if viewModel?.characterListSize() == 0 {
             btnReloadCharacters.isHidden = false
-            showAlert(title: "Busca sem resultado!", message: "Nenhum resultado encontrado")
+            showAlert(title: ProjectStrings.titleSearchWithoutResult.localized, message: ProjectStrings.messageNoResultsFound.localized)
         } else if isToShowTheFirstCell {
             self.isToShowTheFirstCell = false
             let indexPath = IndexPath(row: 0, section: 0)

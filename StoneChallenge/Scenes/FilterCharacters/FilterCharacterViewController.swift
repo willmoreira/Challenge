@@ -22,39 +22,41 @@ class FilterCharacterViewController: UIViewController {
     
     private let tfFilter: UITextField = {
         let tfFilter = UITextField()
-        tfFilter.placeholder = "Digite o nome para buscar"
-        tfFilter.accessibilityIdentifier = "tfFilter"
+        tfFilter.placeholder = ProjectStrings.enterNameToSearch.localized
+        tfFilter.accessibilityIdentifier = ConfigurationStrings.tfFilter
         tfFilter.borderStyle = .roundedRect
         return tfFilter
     }()
     
     private let pckVwFilter: UIPickerView = {
         let pckVwFilter = UIPickerView()
-        pckVwFilter.accessibilityIdentifier = "pckVwFilter"
+        pckVwFilter.accessibilityIdentifier = ConfigurationStrings.pckVwFilter
         return pckVwFilter
     }()
     
     private let btnFilter: UIButton = {
         let btnFilter = UIButton(type: .system)
-        btnFilter.setTitle("Filtrar", for: .normal)
+        btnFilter.setTitle(ProjectStrings.filter.localized, for: .normal)
         btnFilter.setTitleColor(.black, for: .normal)
         btnFilter.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         btnFilter.layer.borderWidth = 1.0
         btnFilter.layer.borderColor = UIColor.black.cgColor
         btnFilter.backgroundColor = UIColor(red: 245/255.0, green: 237/255.0, blue: 117/255.0, alpha: 1.0)
-        btnFilter.accessibilityIdentifier = "btnFilter"
+        btnFilter.accessibilityIdentifier = ConfigurationStrings.btnFilter
         btnFilter.clipsToBounds = true
         return btnFilter
     }()
     
     private let imgVwBackground: UIImageView = {
         let imgVwBackground = UIImageView()
-        imgVwBackground.accessibilityIdentifier = "imgBackgroundDetail"
-        imgVwBackground.image = UIImage(named: "imgBackgroundFilter")
+        imgVwBackground.accessibilityIdentifier = ConfigurationStrings.imgBackgroundFilter
+        imgVwBackground.image = UIImage(named: ConfigurationStrings.imgBackgroundFilter)
         return imgVwBackground
     }()
     
-    private let filterOptions = ["Alive", "Dead", "Unknown"]
+    private let filterOptions = [ProjectStrings.alive.localized,
+                                 ProjectStrings.dead.localized,
+                                 ProjectStrings.unknown.localized]
     
     // MARK: - View Lifecycle
     
@@ -119,7 +121,7 @@ class FilterCharacterViewController: UIViewController {
             btnFilter.bottomAnchor.constraint(equalTo: vwContainer.bottomAnchor, constant: -24),
             btnFilter.leadingAnchor.constraint(equalTo: vwContainer.leadingAnchor, constant: 24),
             btnFilter.trailingAnchor.constraint(equalTo: vwContainer.trailingAnchor, constant: -24),
-            btnFilter.heightAnchor.constraint(equalToConstant: 48),
+            btnFilter.heightAnchor.constraint(equalToConstant: 48)
         ])
         
         view.layoutIfNeeded()
@@ -128,8 +130,8 @@ class FilterCharacterViewController: UIViewController {
     }
     
     private func setupBackButton() {
-        navigationItem.title = "Filtro"
-        navigationController?.navigationBar.topItem?.title = "Voltar"
+        navigationItem.title = ProjectStrings.titleFilter.localized
+        navigationController?.navigationBar.topItem?.title = ProjectStrings.back.localized
     }
     
     private func setupPickerView() {
@@ -153,7 +155,7 @@ class FilterCharacterViewController: UIViewController {
     @objc private func filterButtonTapped() {
         let selectedOptionIndex = pckVwFilter.selectedRow(inComponent: 0)
         let selectedOption = filterOptions[selectedOptionIndex]
-        let filterText = tfFilter.text ?? ""
+        let filterText = tfFilter.text ?? ConfigurationStrings.emptyString
         viewModel?.filterCharacters(name: filterText, status: selectedOption)
         navigationController?.popViewController(animated: true)
     }

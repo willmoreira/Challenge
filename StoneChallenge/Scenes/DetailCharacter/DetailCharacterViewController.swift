@@ -20,14 +20,14 @@ class DetailCharacterViewController: UIViewController {
     
     private var imgCharacter: UIImageView = {
         let imgCharacter = UIImageView()
-        imgCharacter.accessibilityIdentifier = "imgCharacter"
+        imgCharacter.accessibilityIdentifier = ConfigurationStrings.imgCharacter
         return imgCharacter
     }()
     
     private let imgVwBackground: UIImageView = {
         let imgVwBackground = UIImageView()
-        imgVwBackground.accessibilityIdentifier = "imgBackgroundDetail"
-        imgVwBackground.image = UIImage(named: "imgBackgroundDetail")
+        imgVwBackground.accessibilityIdentifier = ConfigurationStrings.imgBackgroundDetail
+        imgVwBackground.image = UIImage(named: ConfigurationStrings.imgBackgroundDetail)
         return imgVwBackground
     }()
     
@@ -65,8 +65,8 @@ class DetailCharacterViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setupBackButton() {
-        navigationItem.title = "Detalhes do Personagem"
-        navigationController?.navigationBar.topItem?.title = "Voltar"
+        navigationItem.title = ProjectStrings.characterDetails.localized
+        navigationController?.navigationBar.topItem?.title = ProjectStrings.back.localized
     }
     
     private func setupLayout() {
@@ -107,11 +107,11 @@ class DetailCharacterViewController: UIViewController {
     
     private func setupLabels() {
         if let character = character {
-            vwNotebook.addTextInLine(parameterText: "Nome: " + character.name)
-            vwNotebook.addTextInLine(parameterText: "Espécie: " + character.species)
-            vwNotebook.addTextInLine(parameterText: "Situação: " + character.status.rawValue)
-            vwNotebook.addTextInLine(parameterText: "Nasceu: " + character.origin.name)
-            vwNotebook.addTextInLine(parameterText: "Vive em: " + character.location.name)
+            vwNotebook.addTextInLine(parameterText: ProjectStrings.name.localized + character.name)
+            vwNotebook.addTextInLine(parameterText: ProjectStrings.species.localized + character.species)
+            vwNotebook.addTextInLine(parameterText: ProjectStrings.situation.localized + character.status.rawValue)
+            vwNotebook.addTextInLine(parameterText: ProjectStrings.heWasBorn.localized + character.origin.name)
+            vwNotebook.addTextInLine(parameterText: ProjectStrings.liveIn.localized + character.location.name)
         }
     }
     
