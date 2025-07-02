@@ -1,0 +1,27 @@
+//
+//  Localizable.strings
+//  Challenge
+//
+//  Created by William on 19/07/23.
+//
+
+"reloadList" = "RELOAD LIST";
+"listCharacter" = "Character List";
+"titleAlertWithoutInternet" = "Oops! without Internet";
+"messageAlertWithoutInternet" = "Looks like you're without internet!";
+"titleSearchWithoutResult" = "Search without result!";
+"messageNoResultsFound" = "No results found";
+"titleOk" = "OK";
+"back" = "To go back";
+"characterDetails" = "Character Details";
+"name" = "Name: ";
+"species" = "Species: ";
+"situation" = "Situation: ";
+"heWasBorn" = "Born: ";
+"liveIn" = "Live in: ";
+"alive" = "Alive";
+"dead" = "Dead";
+"unknown" = "Unknown";
+"filter" = "Filter";
+"titleFilter" = "Filter";
+"enterNameToSearch" = "Enter name to search";
