@@ -1,10 +1,3 @@
-//
-//  FilterCharacterViewControllerUITests.swift
-//  ChallengeUITests
-//
-//  Created by William on 17/07/23.
-//
-
 import XCTest
 
 class FilterCharacterViewControllerUITests: XCTestCase {
@@ -21,31 +14,31 @@ class FilterCharacterViewControllerUITests: XCTestCase {
     func testFilterButtonTapped() {
 
         let filterButton = app.buttons["btnfilter"]
-        XCTAssertTrue(filterButton.exists, "O botão 'Filter' deve existir na tela.")
-
+        XCTAssertTrue(filterButton.exists, "O botão de filtro deve existir na tela principal.")
         filterButton.tap()
 
         let filterScreen = app.navigationBars["Filtro"]
-        XCTAssertTrue(filterScreen.waitForExistence(timeout: 5), """
-        A transição para a tela de filtro deve ocorrer em até 5 segundos.
-        """
-        )
+        XCTAssertTrue(filterScreen.waitForExistence(timeout: 5), "A tela de filtro deve ser apresentada.")
 
         let tfFilter = app.textFields["tfFilter"]
+        XCTAssertTrue(tfFilter.exists, "O campo de texto para filtro deve existir.")
         tfFilter.tap()
-        tfFilter.typeText("Nome do Personagem")
+        tfFilter.typeText("More")
 
-        let pckVwFilter = app.pickers.element
-        let pickerWheel = pckVwFilter.pickerWheels.element
-        pickerWheel.adjust(toPickerWheelValue: "Dead")
+        let pickerWheel = app.pickerWheels.element
+        XCTAssertTrue(pickerWheel.exists, "O picker de status deve existir.")
+        pickerWheel.adjust(toPickerWheelValue: "Alive")
 
         let coordinate = app.coordinate(withNormalizedOffset: CGVector(dx: 0.2, dy: 0.2))
         coordinate.tap()
 
-        let btnFilter = app.buttons["btnFilter"]
-        XCTAssertTrue(btnFilter.waitForExistence(timeout: 5))
-        btnFilter.tap()
+        let applyFilterButton = app.buttons["btnfilter"]
+        XCTAssertTrue(applyFilterButton.waitForExistence(timeout: 5), "O botão para aplicar filtro deve existir.")
+        applyFilterButton.tap()
 
-        XCTAssertTrue(app.tables["tblVwListCharacter"].exists)
+        let table = app.tables["tblVwListCharacter"]
+        XCTAssertTrue(table.waitForExistence(
+            timeout: 5), "A lista de personagens deve estar visível após aplicar o filtro."
+        )
     }
 }

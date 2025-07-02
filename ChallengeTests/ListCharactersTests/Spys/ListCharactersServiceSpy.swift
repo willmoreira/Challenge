@@ -1,25 +1,20 @@
-//
-//  ListCharactersServiceSpy.swift
-//  ChallengeTests
-//
-//  Created by William on 17/07/23.
-//
-
 import Foundation
-
 @testable import Challenge
 
 class ListCharactersServiceSpy: ListCharactersServiceProtocol {
+    var requestResult: Result<CharacterListViewModel, ApiError>?
 
-    var requestResult: Result<CharactersResponse, ApiError>?
-
-    func doRequestListCharacters(page: Int,
-                                 name: String?,
-                                 status: String?,
-                                 completion: @escaping (Result<CharactersResponse, ApiError>) -> Void) {
-        guard let spyRequestResult = requestResult else {
-            return completion(.failure(.unknown))
+    func doRequestListCharacters(
+        page: Int,
+        name: String?,
+        status: String?,
+        completion: @escaping (
+            Result<Challenge.CharacterListViewModel,
+                               Challenge.ApiError>
+        ) -> Void) {
+            guard let spyRequestResult = requestResult else {
+                return completion(.failure(.unknown))
+            }
+            completion(spyRequestResult)
         }
-        completion(spyRequestResult)
-    }
 }

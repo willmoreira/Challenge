@@ -1,10 +1,3 @@
-//
-//  NotebookView.swift
-//  Challenge
-//
-//  Created by William on 15/07/23.
-//
-
 import UIKit
 
 class NotebookView: UIView {
@@ -30,7 +23,6 @@ class NotebookView: UIView {
     // MARK: - Private Methods
 
     private func setupView() {
-        backgroundColor = .white
         layer.cornerRadius = 5
         containerView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(containerView)

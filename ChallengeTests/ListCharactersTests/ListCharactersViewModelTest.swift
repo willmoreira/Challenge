@@ -1,12 +1,4 @@
-//
-//  ListCharactersViewModelTest.swift
-//  ChallengeTests
-//
-//  Created by William on 17/07/23.
-//
-
 import XCTest
-
 @testable import Challenge
 
 class ListCharactersViewModelTest: XCTestCase {

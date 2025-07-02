@@ -1,66 +1,51 @@
-//
-//  ObjectSeeds.swift
-//  ChallengeTests
-//
-//  Created by William on 18/07/23.
-//
-
 import Foundation
 @testable import Challenge
 
 class ObjectSeeds {
-    static let responseCharacterWithTwoCharacter = CharactersResponse(
-        info: CharactersResponse.Info(
-            count: 1,
-            pages: 1,
-            next: "3",
-            prev: "1"),
-        results: [character1, character2],
-        error: nil)
-
-    static let responseCharacter = CharactersResponse(
+    static let responseCharacterWithTwoCharacter = CharacterListViewModel(
+        characters: [character1, character2],
         info: CharactersResponse.Info(
             count: 1,
             pages: 2,
             next: "",
-            prev: ""),
-        results: [character1],
-        error: nil)
+            prev: "")
+    )
 
-    static let responseCharacterEmpytResults = CharactersResponse(
+    static let responseCharacter = CharacterListViewModel(
+        characters: [character1],
         info: CharactersResponse.Info(
             count: 1,
             pages: 2,
             next: "",
-            prev: ""),
-        results: [],
-        error: nil)
+            prev: "")
+    )
 
-    static let character1 = CharactersResponse.Result(
+    static let responseCharacterEmpytResults = CharacterListViewModel(
+        characters: [],
+        info: CharactersResponse.Info(
+            count: 1,
+            pages: 2,
+            next: "",
+            prev: "")
+    )
+
+    static let character1 = CharacterCellViewModel(
         id: 1,
         name: "",
-        status: CharactersResponse.Status.dead,
+        imageURL: "",
+        status: CharactersResponse.Status.dead.rawValue,
         species: "",
-        type: "",
-        gender: CharactersResponse.Gender.female,
-        origin: CharactersResponse.Location(name: "", url: ""),
-        location: CharactersResponse.Location(name: "", url: ""),
-        image: "",
-        episode: [""],
-        url: "",
-        created: "")
+        origin: "",
+        location: ""
+    )
 
-    static let character2 = CharactersResponse.Result(
+    static let character2 = CharacterCellViewModel(
         id: 2,
         name: "",
-        status: CharactersResponse.Status.dead,
+        imageURL: "",
+        status: CharactersResponse.Status.alive.rawValue,
         species: "",
-        type: "",
-        gender: CharactersResponse.Gender.female,
-        origin: CharactersResponse.Location(name: "", url: ""),
-        location: CharactersResponse.Location(name: "", url: ""),
-        image: "",
-        episode: [""],
-        url: "",
-        created: "")
+        origin: "",
+        location: ""
+    )
 }

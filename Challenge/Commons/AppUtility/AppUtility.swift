@@ -1,10 +1,3 @@
-//
-//  AppUtility.swift
-//  Challenge
-//
-//  Created by William on 19/07/23.
-//
-
 import UIKit
 
 struct AppUtility {

@@ -1,10 +1,3 @@
-//
-//  DetailCharacterViewController.swift
-//  Challenge
-//
-//  Created by William on 14/07/23.
-//
-
 import UIKit
 import SDWebImage
 
@@ -47,7 +40,7 @@ class DetailCharacterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         setupLayout()
     }
 

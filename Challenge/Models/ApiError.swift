@@ -1,13 +1,7 @@
-//
-//  ApiError.swift
-//  Challenge
-//
-//  Created by William on 16/07/23.
-//
-
 import Foundation
 
 enum ApiError: Error {
+
     case couldNotConnectToServer
     case noInternet
     case decode

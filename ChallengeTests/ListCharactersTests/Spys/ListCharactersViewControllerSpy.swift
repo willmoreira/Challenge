@@ -1,12 +1,4 @@
-//
-//  ListCharactersViewControllerSpy.swift
-//  ChallengeTests
-//
-//  Created by William on 17/07/23.
-//
-
 import Foundation
-
 @testable import Challenge
 
 class ListCharactersViewControllerSpy: ListCharactersViewControllerDelegate {

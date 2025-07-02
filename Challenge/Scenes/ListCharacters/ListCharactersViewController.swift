@@ -1,10 +1,3 @@
-//
-//  ListCharactersViewController.swift
-//  Challenge
-//
-//  Created by William on 14/07/23.
-//
-
 import UIKit
 import SDWebImage
 
@@ -14,7 +7,12 @@ class ListCharactersViewController: UIViewController {
 
     private lazy var btnFilter: UIButton = {
         let btnFilter = UIButton(type: .custom)
-        btnFilter.setImage(UIImage(named: ConfigurationStrings.filter), for: .normal)
+
+        if let image = UIImage(named: ConfigurationStrings.filter)?.withRenderingMode(.alwaysTemplate) {
+            btnFilter.setImage(image, for: .normal)
+            btnFilter.tintColor = .label
+        }
+
         btnFilter.accessibilityIdentifier = ConfigurationStrings.btnFilter
         btnFilter.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
         return btnFilter
@@ -51,7 +49,7 @@ class ListCharactersViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         setupNavigationBar()
         setupTableView()
         setupReloadCharacterButton()

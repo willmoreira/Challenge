@@ -1,11 +1,5 @@
-//
-//  FilterCharacterViewModelTests.swift
-//  ChallengeTests
-//
-//  Created by William on 18/07/23.
-//
-
 import XCTest
+
 @testable import Challenge
 
 class FilterCharacterViewModelTests: XCTestCase {

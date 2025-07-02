@@ -1,10 +1,3 @@
-//
-//  ProjectStrings.swift
-//  Challenge
-//
-//  Created by William on 19/07/23.
-//
-
 import Foundation
 
 enum ProjectStrings: String, Localizable {

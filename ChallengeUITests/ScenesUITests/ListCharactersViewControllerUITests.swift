@@ -1,10 +1,3 @@
-//
-//  ListCharactersViewControllerUITests.swift
-//  ChallengeUITests
-//
-//  Created by William on 17/07/23.
-//
-
 import XCTest
 
 class ListCharactersViewControllerUITests: XCTestCase {

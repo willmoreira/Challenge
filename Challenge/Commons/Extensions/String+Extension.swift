@@ -1,10 +1,3 @@
-//
-//  String+Extension.swift
-//  Challenge
-//
-//  Created by William on 19/07/23.
-//
-
 import Foundation
 
 extension String {

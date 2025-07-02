@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Challenge
-//
-//  Created by William on 14/07/23.
-//
-
 import UIKit
 
 @main

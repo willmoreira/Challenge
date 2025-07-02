@@ -1,10 +1,3 @@
-//
-//  ListCharactersService.swift
-//  Challenge
-//
-//  Created by William on 14/07/23.
-//
-
 import UIKit
 
 protocol ListCharactersServiceProtocol {
@@ -63,6 +56,7 @@ class ListCharactersService: ListCharactersServiceProtocol {
 
                 let viewModels: [CharacterCellViewModel] = results.compactMap {
                     return CharacterCellViewModel(
+                        id: $0.id,
                         name: $0.name,
                         imageURL: $0.image,
                         status: $0.status.rawValue,

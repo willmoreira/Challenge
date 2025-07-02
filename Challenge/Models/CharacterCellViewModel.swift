@@ -1,12 +1,8 @@
-//
-//  CharacterCellViewModel.swift
-//  Challenge
-//
-//  Created by William on 02/07/25.
-//
 import Foundation
 
 struct CharacterCellViewModel {
+
+    let id: Int
     let name: String
     let imageURL: String
     let status: String

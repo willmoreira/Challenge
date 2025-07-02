@@ -1,10 +1,3 @@
-//
-//  FilterCharacterViewController.swift
-//  Challenge
-//
-//  Created by William on 14/07/23.
-//
-
 import UIKit
 
 class FilterCharacterViewController: UIViewController {
@@ -88,7 +81,7 @@ class FilterCharacterViewController: UIViewController {
 
     private func setupLayout() {
 
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
 
         vwContainer.translatesAutoresizingMaskIntoConstraints = false
         tfFilter.translatesAutoresizingMaskIntoConstraints = false
