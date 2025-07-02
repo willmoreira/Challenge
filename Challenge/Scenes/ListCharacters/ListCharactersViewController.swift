@@ -202,6 +202,7 @@ extension ListCharactersViewController: UITableViewDelegate, UITableViewDataSour
 // MARK: - ListCharactersViewControllerDelegate
 
 extension ListCharactersViewController: ListCharactersViewControllerDelegate {
+
     func withoutInternet() {
         activityIndicator.stopAnimating()
         btnReloadCharacters.isHidden = false
