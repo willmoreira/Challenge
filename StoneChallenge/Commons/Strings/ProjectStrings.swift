@@ -8,11 +8,11 @@
 import Foundation
 
 enum ProjectStrings: String, Localizable {
-    
+
     var tableName: String {
         return "Localizable"
     }
-  
+
     case reloadList
     case listCharacter
     case titleAlertWithoutInternet

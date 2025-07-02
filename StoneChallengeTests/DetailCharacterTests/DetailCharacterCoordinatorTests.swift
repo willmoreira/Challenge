@@ -24,7 +24,7 @@ class DetailCharacterCoordinatorTests: XCTestCase {
     func testStart() {
         // Given
         let coordinator = DetailCharacterCoordinator()
-        
+
         // When
         let viewController = coordinator.start()
 

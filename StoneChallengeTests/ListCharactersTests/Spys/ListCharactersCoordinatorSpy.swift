@@ -17,7 +17,7 @@ class ListCharactersCoordinatorSpy: ListCharactersCoordinatorDelegate {
     func goesToFilterCharacter() {
         self.goesToFilterCharacterCalled = true
     }
-    
+
     func goesToDetailCharacter(result: CharactersResponse.Result) {
         self.goesToDetailCharacterCalled = true
         self.goesToDetailCharacterResult = result

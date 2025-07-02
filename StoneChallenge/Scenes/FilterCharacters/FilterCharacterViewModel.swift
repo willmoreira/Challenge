@@ -17,17 +17,17 @@ protocol FilterCharacterViewModelDelegate: AnyObject {
 }
 
 class FilterCharacterViewModel: FilterCharacterViewModelDelegate {
-    
+
     // MARK: - Properties
-    
+
     weak var delegate: FilterCharacterViewModelActionsDelegate?
-    
+
     // MARK: - Public Methods
-    
+
     func filterCharacters(name: String, status: String) {
         delegate?.updateListCharacter(name: name, status: status)
     }
-    
+
     func passDelegateFilterCharacter(delegate: FilterCharacterViewModelActionsDelegate) {
         self.delegate = delegate
     }

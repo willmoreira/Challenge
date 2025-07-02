@@ -22,7 +22,7 @@ class ListCharactersViewControllerUITests: XCTestCase {
     }
 
     func testShowListCharacterAndNavigateToDetailCharacter() {
-        
+
         let tableView = app.tables["tblVwListCharacter"]
         XCTAssertTrue(tableView.exists, "Table view not found")
 
@@ -30,22 +30,28 @@ class ListCharactersViewControllerUITests: XCTestCase {
         XCTAssertTrue(firstCell.waitForExistence(timeout: 5), "Table view is empty")
 
         let firstCharacterName = "Rick Sanchez"
-        XCTAssertTrue(firstCell.staticTexts[firstCharacterName].exists, "First cell does not contain correct character name")
+        XCTAssertTrue(firstCell.staticTexts[firstCharacterName].exists, """
+        First cell does not contain correct character name
+        """
+        )
 
         firstCell.tap()
 
         let detailViewTitle = app.navigationBars.staticTexts["Detalhes do Personagem"]
         XCTAssertTrue(detailViewTitle.waitForExistence(timeout: 5), "DetailCharacterViewController not presented")
     }
-    
+
     func testGoToFilterScreen() throws {
         let filterButton = app.buttons["btnfilter"]
-         XCTAssertTrue(filterButton.exists, "O botão 'Filter' deve existir na tela.")
-         
-         filterButton.tap()
-         
-         let filterScreen = app.navigationBars["Filtro"]
-        
-         XCTAssertTrue(filterScreen.waitForExistence(timeout: 5), "A transição para a tela de filtro deve ocorrer em até 5 segundos.")
-     }
+        XCTAssertTrue(filterButton.exists, "O botão 'Filter' deve existir na tela.")
+
+        filterButton.tap()
+
+        let filterScreen = app.navigationBars["Filtro"]
+
+        XCTAssertTrue(filterScreen.waitForExistence(timeout: 5), """
+         A transição para a tela de filtro deve ocorrer em até 5 segundos.
+         """
+        )
+    }
 }

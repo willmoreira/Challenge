@@ -15,9 +15,11 @@ struct AppUtility {
         }
     }
 
-    static func lockOrientation(_ orientation: UIInterfaceOrientationMask, andRotateTo rotateOrientation: UIInterfaceOrientation) {
+    static func lockOrientation(_ orientation: UIInterfaceOrientationMask,
+                                andRotateTo rotateOrientation: UIInterfaceOrientation
+    ) {
         self.lockOrientation(orientation)
-    
+
         UIDevice.current.setValue(rotateOrientation.rawValue, forKey: "orientation")
         UINavigationController.attemptRotationToDeviceOrientation()
     }

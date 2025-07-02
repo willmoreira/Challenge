@@ -23,12 +23,12 @@ protocol ListCharactersViewModelDelegate: AnyObject {
 }
 
 class ListCharactersViewModel: ListCharactersViewModelDelegate {
-    
+
     // MARK: - Properties
-    
+
     weak var delegate: ListCharactersViewControllerDelegate?
     var coordinator: ListCharactersCoordinatorDelegate?
-    
+
     private let service: ListCharactersServiceProtocol
     private var name: String?
     private var status: String?
@@ -36,17 +36,17 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
     private var totalPages: Int = 1
     private var charactersList: [CharactersResponse.Result] = []
     private var isLoadNextPageInProgress = false
-    
+
     // MARK: - Initialization
-    
+
     init(service: ListCharactersServiceProtocol = ListCharactersService()) {
         self.service = service
     }
-    
+
     // MARK: - Public Methods
-    
+
     func requestCharacterList() {
-        
+
         if isInternetAvailable() {
             guard page <= totalPages, !isLoadNextPageInProgress else { return }
             isLoadNextPageInProgress = true
@@ -69,7 +69,7 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
             delegate?.withoutInternet()
         }
     }
-    
+
     func isInternetAvailable() -> Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
@@ -90,7 +90,7 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
 
         let isReachable = flags.contains(.reachable)
         let needsConnection = flags.contains(.connectionRequired)
-        
+
         return isReachable && !needsConnection
     }
 
@@ -102,20 +102,20 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
         self.status = status
         requestCharacterList()
     }
-    
+
     func goesToFilterCharacter() {
         coordinator?.goesToFilterCharacter()
     }
-    
+
     func goesToDetailCharacter(_ index: Int) {
         guard index < charactersList.count else { return }
         coordinator?.goesToDetailCharacter(result: charactersList[index])
     }
-    
+
     func characterListSize() -> Int {
         return charactersList.count
     }
-    
+
     func getCharacter(index: Int) -> CharactersResponse.Result {
         return charactersList[index]
     }

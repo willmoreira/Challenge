@@ -12,7 +12,7 @@ import Foundation
 class ListCharactersServiceSpy: ListCharactersServiceProtocol {
 
     var requestResult: Result<CharactersResponse, ApiError>?
-    
+
     func doRequestListCharacters(page: Int,
                                  name: String?,
                                  status: String?,

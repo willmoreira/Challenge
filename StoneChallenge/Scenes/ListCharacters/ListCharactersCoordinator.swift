@@ -13,19 +13,19 @@ protocol ListCharactersCoordinatorDelegate: AnyObject {
 }
 
 class ListCharactersCoordinator {
-    
+
     // MARK: - Properties
-    
+
     var navigationController: UINavigationController
-    
+
     // MARK: - Initialization
-    
+
     init(navigationController: UINavigationController = UINavigationController()) {
         self.navigationController = navigationController
     }
-    
+
     // MARK: - Coordinator Methods
-    
+
     func start() -> UIViewController {
         let viewController = ListCharactersViewController()
         let viewModel = ListCharactersViewModel()
@@ -37,22 +37,25 @@ class ListCharactersCoordinator {
 }
 
 extension ListCharactersCoordinator: ListCharactersCoordinatorDelegate {
-    
+
     // MARK: - ListCharactersCoordinatorDelegate
-    
+
     func goesToFilterCharacter() {
         let filterCharacterCoordinator = FilterCharacterCoordinator()
-        guard let filterCharacterViewController = filterCharacterCoordinator.start() as? FilterCharacterViewController else { return }
-        guard let navigationControllerLast = navigationController.viewControllers.last as? FilterCharacterViewModelActionsDelegate else { return }
+        guard let filterCharacterViewController = filterCharacterCoordinator.start()
+                as? FilterCharacterViewController else { return }
+        guard let navigationControllerLast = navigationController.viewControllers.last
+                as? FilterCharacterViewModelActionsDelegate else { return }
         filterCharacterViewController.viewModel?.passDelegateFilterCharacter(delegate: navigationControllerLast)
         let backButton = UIBarButtonItem(title: ProjectStrings.back.localized, style: .plain, target: nil, action: nil)
         navigationController.navigationItem.backBarButtonItem = backButton
         navigationController.pushViewController(filterCharacterViewController, animated: true)
     }
-    
+
     func goesToDetailCharacter(result: CharactersResponse.Result) {
         let detailCharacterCoordinator = DetailCharacterCoordinator()
-        guard let detailCharacterViewController = detailCharacterCoordinator.start() as? DetailCharacterViewController else { return }
+        guard let detailCharacterViewController = detailCharacterCoordinator.start()
+                as? DetailCharacterViewController else { return }
         detailCharacterViewController.character = result
         let backButton = UIBarButtonItem(title: ProjectStrings.back.localized, style: .plain, target: nil, action: nil)
         navigationController.navigationItem.backBarButtonItem = backButton

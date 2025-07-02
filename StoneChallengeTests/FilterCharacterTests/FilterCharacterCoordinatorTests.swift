@@ -24,7 +24,7 @@ class FilterCharacterCoordinatorTests: XCTestCase {
     func testStart() {
         // Given
         let sut = FilterCharacterCoordinator()
-        
+
         // When
         let viewController = sut.start()
 
