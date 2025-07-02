@@ -12,7 +12,7 @@ class DetailCharacterViewController: UIViewController {
 
     // MARK: - Properties
 
-    var character: CharactersResponse.Result? {
+    var character: CharacterCellViewModel? {
         didSet {
             updateMovieImage()
         }
@@ -111,16 +111,16 @@ class DetailCharacterViewController: UIViewController {
         if let character = character {
             vwNotebook.addTextInLine(parameterText: ProjectStrings.name.localized + character.name)
             vwNotebook.addTextInLine(parameterText: ProjectStrings.species.localized + character.species)
-            vwNotebook.addTextInLine(parameterText: ProjectStrings.situation.localized + character.status.rawValue)
-            vwNotebook.addTextInLine(parameterText: ProjectStrings.heWasBorn.localized + character.origin.name)
-            vwNotebook.addTextInLine(parameterText: ProjectStrings.liveIn.localized + character.location.name)
+            vwNotebook.addTextInLine(parameterText: ProjectStrings.situation.localized + character.status)
+            vwNotebook.addTextInLine(parameterText: ProjectStrings.heWasBorn.localized + character.origin)
+            vwNotebook.addTextInLine(parameterText: ProjectStrings.liveIn.localized + character.location)
         }
     }
 
     // MARK: - Helper
 
     private func updateMovieImage() {
-        if let imgPathUrl = character?.image {
+        if let imgPathUrl = character?.imageURL {
             let imageUrl = URL(string: imgPathUrl)
             imgCharacter.sd_setImage(with: imageUrl)
         }

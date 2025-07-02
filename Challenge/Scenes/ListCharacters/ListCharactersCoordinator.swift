@@ -9,7 +9,7 @@ import UIKit
 
 protocol ListCharactersCoordinatorDelegate: AnyObject {
     func goesToFilterCharacter()
-    func goesToDetailCharacter(result: CharactersResponse.Result)
+    func goesToDetailCharacter(result: CharacterCellViewModel)
 }
 
 class ListCharactersCoordinator {
@@ -52,7 +52,7 @@ extension ListCharactersCoordinator: ListCharactersCoordinatorDelegate {
         navigationController.pushViewController(filterCharacterViewController, animated: true)
     }
 
-    func goesToDetailCharacter(result: CharactersResponse.Result) {
+    func goesToDetailCharacter(result: CharacterCellViewModel) {
         let detailCharacterCoordinator = DetailCharacterCoordinator()
         guard let detailCharacterViewController = detailCharacterCoordinator.start()
                 as? DetailCharacterViewController else { return }

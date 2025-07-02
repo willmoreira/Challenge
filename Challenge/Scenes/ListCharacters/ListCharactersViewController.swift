@@ -45,7 +45,7 @@ class ListCharactersViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     private var isToShowTheFirstCell = false
 
-    var viewModel: ListCharactersViewModelDelegate?
+    var viewModel: ListCharactersViewModel?
 
     // MARK: - View Lifecycle
 
@@ -195,7 +195,7 @@ extension ListCharactersViewController: UITableViewDelegate, UITableViewDataSour
             for: indexPath
         ) as? TableViewCharacterCells else { return UITableViewCell() }
         if let character = viewModel?.getCharacter(index: indexPath.row) {
-            cell.setupCell(name: character.name, urlImage: character.image)
+            cell.setupCell(name: character.name, urlImage: character.imageURL)
         }
         return cell
     }

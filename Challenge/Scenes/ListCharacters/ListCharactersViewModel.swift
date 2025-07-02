@@ -13,16 +13,19 @@ protocol ListCharactersViewControllerDelegate: AnyObject {
     func withoutInternet()
 }
 
-protocol ListCharactersViewModelDelegate: AnyObject {
+protocol ListCharactersViewModelNavigation {
     func goesToFilterCharacter()
     func goesToDetailCharacter(_ index: Int)
+}
+
+protocol ListCharactersViewModelDataSource {
     func requestCharacterList()
     func requestCharacterListInitial(name: String, status: String)
     func characterListSize() -> Int
-    func getCharacter(index: Int) -> CharactersResponse.Result
+    func getCharacter(index: Int) -> CharacterCellViewModel
 }
 
-class ListCharactersViewModel: ListCharactersViewModelDelegate {
+class ListCharactersViewModel: ListCharactersViewModelDataSource, ListCharactersViewModelNavigation {
 
     // MARK: - Properties
 
@@ -30,11 +33,10 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
     var coordinator: ListCharactersCoordinatorDelegate?
 
     private let service: ListCharactersServiceProtocol
+    private var pagination = Pagination()
     private var name: String?
     private var status: String?
-    private var page: Int = 1
-    private var totalPages: Int = 1
-    private var charactersList: [CharactersResponse.Result] = []
+    private var charactersList: [CharacterCellViewModel] = []
     private var isLoadNextPageInProgress = false
 
     // MARK: - Initialization
@@ -48,17 +50,14 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
     func requestCharacterList() {
 
         if isInternetAvailable() {
-            guard page <= totalPages, !isLoadNextPageInProgress else { return }
+            guard pagination.currentPage <= pagination.totalPages, !isLoadNextPageInProgress else { return }
             isLoadNextPageInProgress = true
-            service.doRequestListCharacters(page: page, name: name, status: status) { result in
+            service.doRequestListCharacters(page: pagination.currentPage, name: name, status: status) { result in
                 switch result {
-                case let .success(charactersResponse):
-                    self.page += 1
-                    if let charactersResponseInfo = charactersResponse.info,
-                       let charactersResponseResults = charactersResponse.results {
-                        self.totalPages = charactersResponseInfo.pages
-                        self.charactersList.append(contentsOf: charactersResponseResults)
-                    }
+                case let .success(characterListViewModel):
+                    self.pagination.currentPage += 1
+                    self.pagination.totalPages = characterListViewModel.info?.pages ?? 1
+                    self.charactersList.append(contentsOf: characterListViewModel.characters)
                     self.delegate?.updateListCharacterDelegate()
                     self.isLoadNextPageInProgress = false
                 case .failure:
@@ -95,8 +94,8 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
     }
 
     func requestCharacterListInitial(name: String, status: String) {
-        page = 1
-        totalPages = 1
+        pagination.currentPage = 1
+        pagination.totalPages = 1
         charactersList = []
         self.name = name
         self.status = status
@@ -116,7 +115,7 @@ class ListCharactersViewModel: ListCharactersViewModelDelegate {
         return charactersList.count
     }
 
-    func getCharacter(index: Int) -> CharactersResponse.Result {
+    func getCharacter(index: Int) -> CharacterCellViewModel {
         return charactersList[index]
     }
 }
