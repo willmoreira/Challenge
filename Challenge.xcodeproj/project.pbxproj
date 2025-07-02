@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3D5679AC2A67064500EEFDBD /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3D5679AB2A67064500EEFDBD /* swiftlint.yml */; };
+		3D8DB4862E157AF400007647 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8DB4852E157AE700007647 /* Pagination.swift */; };
+		3D8DB4882E157C6F00007647 /* CharacterCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8DB4872E157C5200007647 /* CharacterCellViewModel.swift */; };
+		3D8DB48A2E15859F00007647 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8DB4892E15859800007647 /* CharacterListViewModel.swift */; };
+		3D8DB48C2E15891C00007647 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8DB48B2E15891700007647 /* LocationViewModel.swift */; };
 		3DA42EA22A66247900B17D38 /* ListCharactersViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA42EA12A66247900B17D38 /* ListCharactersViewControllerUITests.swift */; };
 		3DA42EA42A66252600B17D38 /* DetailCharacterViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA42EA32A66252600B17D38 /* DetailCharacterViewControllerUITests.swift */; };
 		3DA42EAC2A66345600B17D38 /* FilterCharacterViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA42EAB2A66345600B17D38 /* FilterCharacterViewControllerUITests.swift */; };
@@ -65,6 +69,10 @@
 
 /* Begin PBXFileReference section */
 		3D5679AB2A67064500EEFDBD /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
+		3D8DB4852E157AE700007647 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
+		3D8DB4872E157C5200007647 /* CharacterCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellViewModel.swift; sourceTree = "<group>"; };
+		3D8DB4892E15859800007647 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
+		3D8DB48B2E15891700007647 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		3DA42EA12A66247900B17D38 /* ListCharactersViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersViewControllerUITests.swift; sourceTree = "<group>"; };
 		3DA42EA32A66252600B17D38 /* DetailCharacterViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCharacterViewControllerUITests.swift; sourceTree = "<group>"; };
 		3DA42EAB2A66345600B17D38 /* FilterCharacterViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCharacterViewControllerUITests.swift; sourceTree = "<group>"; };
@@ -88,14 +96,14 @@
 		3DB3C4762A67A0BE005F6159 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3DB3C4782A67A0BF005F6159 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3DB3C47A2A67ADB5005F6159 /* ConfigurationStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationStrings.swift; sourceTree = "<group>"; };
-		3DB50C3D2A61CE30005C48F8 /* StoneChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoneChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DB50C3D2A61CE30005C48F8 /* Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB50C402A61CE30005C48F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DB50C422A61CE30005C48F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3DB50C492A61CE33005C48F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DB50C4C2A61CE33005C48F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DB50C4E2A61CE33005C48F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DB50C532A61CE33005C48F8 /* StoneChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoneChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DB50C5D2A61CE33005C48F8 /* StoneChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoneChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DB50C532A61CE33005C48F8 /* ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DB50C5D2A61CE33005C48F8 /* ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB50C722A61D0B7005C48F8 /* ListCharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersViewController.swift; sourceTree = "<group>"; };
 		3DB50C742A61D0DA005C48F8 /* ListCharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersViewModel.swift; sourceTree = "<group>"; };
 		3DB50C762A61D0F3005C48F8 /* ListCharactersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCharactersService.swift; sourceTree = "<group>"; };
@@ -255,9 +263,9 @@
 			isa = PBXGroup;
 			children = (
 				3DAFCB792A6597CC00DAAE04 /* README.md */,
-				3DB50C3F2A61CE30005C48F8 /* StoneChallenge */,
-				3DB50C562A61CE33005C48F8 /* StoneChallengeTests */,
-				3DB50C602A61CE33005C48F8 /* StoneChallengeUITests */,
+				3DB50C3F2A61CE30005C48F8 /* Challenge */,
+				3DB50C562A61CE33005C48F8 /* ChallengeTests */,
+				3DB50C602A61CE33005C48F8 /* ChallengeUITests */,
 				3DB50C3E2A61CE30005C48F8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -265,14 +273,14 @@
 		3DB50C3E2A61CE30005C48F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3DB50C3D2A61CE30005C48F8 /* StoneChallenge.app */,
-				3DB50C532A61CE33005C48F8 /* StoneChallengeTests.xctest */,
-				3DB50C5D2A61CE33005C48F8 /* StoneChallengeUITests.xctest */,
+				3DB50C3D2A61CE30005C48F8 /* Challenge.app */,
+				3DB50C532A61CE33005C48F8 /* ChallengeTests.xctest */,
+				3DB50C5D2A61CE33005C48F8 /* ChallengeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3DB50C3F2A61CE30005C48F8 /* StoneChallenge */ = {
+		3DB50C3F2A61CE30005C48F8 /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
 				3DB3C4682A679F7C005F6159 /* Commons */,
@@ -285,10 +293,10 @@
 				3DB50C702A61CFD0005C48F8 /* Scenes */,
 				3D5679AB2A67064500EEFDBD /* swiftlint.yml */,
 			);
-			path = StoneChallenge;
+			path = Challenge;
 			sourceTree = "<group>";
 		};
-		3DB50C562A61CE33005C48F8 /* StoneChallengeTests */ = {
+		3DB50C562A61CE33005C48F8 /* ChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
 				3DAE75622A66421A00B28DA0 /* DetailCharacterTests */,
@@ -296,15 +304,15 @@
 				3DAFCB702A658F6B00DAAE04 /* ListCharactersTests */,
 				3DAE75682A66E0BB00B28DA0 /* Models */,
 			);
-			path = StoneChallengeTests;
+			path = ChallengeTests;
 			sourceTree = "<group>";
 		};
-		3DB50C602A61CE33005C48F8 /* StoneChallengeUITests */ = {
+		3DB50C602A61CE33005C48F8 /* ChallengeUITests */ = {
 			isa = PBXGroup;
 			children = (
 				3DAFCB802A65D65A00DAAE04 /* ScenesUITests */,
 			);
-			path = StoneChallengeUITests;
+			path = ChallengeUITests;
 			sourceTree = "<group>";
 		};
 		3DB50C702A61CFD0005C48F8 /* Scenes */ = {
@@ -340,6 +348,10 @@
 		3DE0DF532A61E2BF00BA7473 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3D8DB48B2E15891700007647 /* LocationViewModel.swift */,
+				3D8DB4892E15859800007647 /* CharacterListViewModel.swift */,
+				3D8DB4872E157C5200007647 /* CharacterCellViewModel.swift */,
+				3D8DB4852E157AE700007647 /* Pagination.swift */,
 				3DE0DF542A61E30B00BA7473 /* CharactersResponse.swift */,
 				3DAFCB6A2A645A9F00DAAE04 /* ApiError.swift */,
 			);
@@ -369,9 +381,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3DB50C3C2A61CE30005C48F8 /* StoneChallenge */ = {
+		3DB50C3C2A61CE30005C48F8 /* Challenge */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3DB50C672A61CE33005C48F8 /* Build configuration list for PBXNativeTarget "StoneChallenge" */;
+			buildConfigurationList = 3DB50C672A61CE33005C48F8 /* Build configuration list for PBXNativeTarget "Challenge" */;
 			buildPhases = (
 				3DB50C392A61CE30005C48F8 /* Sources */,
 				3DB50C3A2A61CE30005C48F8 /* Frameworks */,
@@ -382,17 +394,17 @@
 			);
 			dependencies = (
 			);
-			name = StoneChallenge;
+			name = Challenge;
 			packageProductDependencies = (
 				3DAFCB872A66222300DAAE04 /* SDWebImage */,
 			);
 			productName = StoneChallenge;
-			productReference = 3DB50C3D2A61CE30005C48F8 /* StoneChallenge.app */;
+			productReference = 3DB50C3D2A61CE30005C48F8 /* Challenge.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3DB50C522A61CE33005C48F8 /* StoneChallengeTests */ = {
+		3DB50C522A61CE33005C48F8 /* ChallengeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3DB50C6A2A61CE33005C48F8 /* Build configuration list for PBXNativeTarget "StoneChallengeTests" */;
+			buildConfigurationList = 3DB50C6A2A61CE33005C48F8 /* Build configuration list for PBXNativeTarget "ChallengeTests" */;
 			buildPhases = (
 				3DB50C4F2A61CE33005C48F8 /* Sources */,
 				3DB50C502A61CE33005C48F8 /* Frameworks */,
@@ -403,14 +415,14 @@
 			dependencies = (
 				3DB50C552A61CE33005C48F8 /* PBXTargetDependency */,
 			);
-			name = StoneChallengeTests;
+			name = ChallengeTests;
 			productName = StoneChallengeTests;
-			productReference = 3DB50C532A61CE33005C48F8 /* StoneChallengeTests.xctest */;
+			productReference = 3DB50C532A61CE33005C48F8 /* ChallengeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3DB50C5C2A61CE33005C48F8 /* StoneChallengeUITests */ = {
+		3DB50C5C2A61CE33005C48F8 /* ChallengeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3DB50C6D2A61CE33005C48F8 /* Build configuration list for PBXNativeTarget "StoneChallengeUITests" */;
+			buildConfigurationList = 3DB50C6D2A61CE33005C48F8 /* Build configuration list for PBXNativeTarget "ChallengeUITests" */;
 			buildPhases = (
 				3DB50C592A61CE33005C48F8 /* Sources */,
 				3DB50C5A2A61CE33005C48F8 /* Frameworks */,
@@ -421,9 +433,9 @@
 			dependencies = (
 				3DB50C5F2A61CE33005C48F8 /* PBXTargetDependency */,
 			);
-			name = StoneChallengeUITests;
+			name = ChallengeUITests;
 			productName = StoneChallengeUITests;
-			productReference = 3DB50C5D2A61CE33005C48F8 /* StoneChallengeUITests.xctest */;
+			productReference = 3DB50C5D2A61CE33005C48F8 /* ChallengeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -449,7 +461,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3DB50C382A61CE30005C48F8 /* Build configuration list for PBXProject "StoneChallenge" */;
+			buildConfigurationList = 3DB50C382A61CE30005C48F8 /* Build configuration list for PBXProject "Challenge" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -466,9 +478,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3DB50C3C2A61CE30005C48F8 /* StoneChallenge */,
-				3DB50C522A61CE33005C48F8 /* StoneChallengeTests */,
-				3DB50C5C2A61CE33005C48F8 /* StoneChallengeUITests */,
+				3DB50C3C2A61CE30005C48F8 /* Challenge */,
+				3DB50C522A61CE33005C48F8 /* ChallengeTests */,
+				3DB50C5C2A61CE33005C48F8 /* ChallengeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -528,13 +540,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB3C46E2A679FFF005F6159 /* ProjectStrings.swift in Sources */,
+				3D8DB48A2E15859F00007647 /* CharacterListViewModel.swift in Sources */,
 				3DB50C732A61D0B7005C48F8 /* ListCharactersViewController.swift in Sources */,
 				3DE0DF552A61E30B00BA7473 /* CharactersResponse.swift in Sources */,
+				3D8DB4862E157AF400007647 /* Pagination.swift in Sources */,
 				3DB50C772A61D0F3005C48F8 /* ListCharactersService.swift in Sources */,
 				3DAFCB6B2A645A9F00DAAE04 /* ApiError.swift in Sources */,
 				3DB50C412A61CE30005C48F8 /* AppDelegate.swift in Sources */,
 				3DB50C752A61D0DA005C48F8 /* ListCharactersViewModel.swift in Sources */,
 				3DE0DF662A6231A000BA7473 /* FilterCharacterViewController.swift in Sources */,
+				3D8DB48C2E15891C00007647 /* LocationViewModel.swift in Sources */,
 				3DB3C4702A67A02D005F6159 /* String+Extension.swift in Sources */,
 				3DE0DF6A2A6231C100BA7473 /* FilterCharacterViewModel.swift in Sources */,
 				3DB50C792A61D10E005C48F8 /* ListCharactersCoordinator.swift in Sources */,
@@ -544,6 +559,7 @@
 				3DE0DF5C2A6230F800BA7473 /* DetailCharacterCoordinator.swift in Sources */,
 				3DAFCB692A635D8F00DAAE04 /* NotebookView.swift in Sources */,
 				3DE0DF522A61DC2D00BA7473 /* TableViewCharacterCells.swift in Sources */,
+				3D8DB4882E157C6F00007647 /* CharacterCellViewModel.swift in Sources */,
 				3DE0DF642A62319000BA7473 /* FilterCharacterCoordinator.swift in Sources */,
 				3DB3C4722A67A054005F6159 /* Localizable.swift in Sources */,
 				3DB50C432A61CE30005C48F8 /* SceneDelegate.swift in Sources */,
@@ -581,12 +597,12 @@
 /* Begin PBXTargetDependency section */
 		3DB50C552A61CE33005C48F8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3DB50C3C2A61CE30005C48F8 /* StoneChallenge */;
+			target = 3DB50C3C2A61CE30005C48F8 /* Challenge */;
 			targetProxy = 3DB50C542A61CE33005C48F8 /* PBXContainerItemProxy */;
 		};
 		3DB50C5F2A61CE33005C48F8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3DB50C3C2A61CE30005C48F8 /* StoneChallenge */;
+			target = 3DB50C3C2A61CE30005C48F8 /* Challenge */;
 			targetProxy = 3DB50C5E2A61CE33005C48F8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -734,11 +750,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZZG85XAAJ4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = StoneChallenge/Info.plist;
+				INFOPLIST_FILE = Challenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -748,8 +765,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.testeIOSWilliam.StoneChallenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testeIOSWilliam.Challenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -761,11 +779,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZZG85XAAJ4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = StoneChallenge/Info.plist;
+				INFOPLIST_FILE = Challenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -775,8 +794,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.testeIOSWilliam.StoneChallenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testeIOSWilliam.Challenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -794,7 +814,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.testeIOSWilliam.StoneChallengeTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testeIOSWilliam.ChallengeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -814,7 +834,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.testeIOSWilliam.StoneChallengeTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testeIOSWilliam.ChallengeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -829,10 +849,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZZG85XAAJ4;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.testeIOSWilliam.StoneChallengeUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testeIOSWilliam.ChallengeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -847,10 +867,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZZG85XAAJ4;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.testeIOSWilliam.StoneChallengeUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testeIOSWilliam.ChallengeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -862,7 +882,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3DB50C382A61CE30005C48F8 /* Build configuration list for PBXProject "StoneChallenge" */ = {
+		3DB50C382A61CE30005C48F8 /* Build configuration list for PBXProject "Challenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3DB50C652A61CE33005C48F8 /* Debug */,
@@ -871,7 +891,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3DB50C672A61CE33005C48F8 /* Build configuration list for PBXNativeTarget "StoneChallenge" */ = {
+		3DB50C672A61CE33005C48F8 /* Build configuration list for PBXNativeTarget "Challenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3DB50C682A61CE33005C48F8 /* Debug */,
@@ -880,7 +900,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3DB50C6A2A61CE33005C48F8 /* Build configuration list for PBXNativeTarget "StoneChallengeTests" */ = {
+		3DB50C6A2A61CE33005C48F8 /* Build configuration list for PBXNativeTarget "ChallengeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3DB50C6B2A61CE33005C48F8 /* Debug */,
@@ -889,7 +909,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3DB50C6D2A61CE33005C48F8 /* Build configuration list for PBXNativeTarget "StoneChallengeUITests" */ = {
+		3DB50C6D2A61CE33005C48F8 /* Build configuration list for PBXNativeTarget "ChallengeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3DB50C6E2A61CE33005C48F8 /* Debug */,

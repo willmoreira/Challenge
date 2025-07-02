@@ -6,7 +6,7 @@ O app tem a finalidade de consumir a api do desenho Rick and Morty e mostrar per
 
 # Dependências
 
-Fazer download ou clonar o projeto, vá até a pasta do projeto e clicar no arquivo StoneChallenge.xcodeproj, ao abrir o projeto no xcode.
+Fazer download ou clonar o projeto, vá até a pasta do projeto e clicar no arquivo Challenge.xcodeproj, ao abrir o projeto no xcode.
 
 Verificar a lib SDWebImage, caso ela não estiver no projeto adicionar via pod ou SPM a biblioteca, essa lib faz o tratamento de imagens a partir de uma url no projeto.
 
@@ -16,15 +16,15 @@ A aplicação contempla 3 telas:
 
 TELA 1 (Listagem de personagens) - É a tela inicial da aplicação que lista os personagens, contem um botão de filtro localizado na direita da barra superior de navegação que ao ser acionado abre a tela de filtro, quando um personagem da lista e clicado abre a tela de detalhes do personagem.
 
-![img](https://github.com/willmoreira/StoneChallenge/assets/32074474/5ea0328d-ae8c-40b3-bd9d-b5beb76cbac3)
+![img](https://github.com/willmoreira/Challenge/assets/32074474/5ea0328d-ae8c-40b3-bd9d-b5beb76cbac3)
 
 TELA 2 (Filtro de personagens) - É a tela de filtro onde permite buscar personagens por nome e status ou somente por status, sendo o resultado mostrado na tela de listagem de personagens, contem um campo para escrever o nome do personagem, um botão de seleção com 3 opções de status (alive, dead, unknown), botão de filtrar e botão de voltar para a tela de listagem de personagens.
 
-![img1](https://github.com/willmoreira/StoneChallenge/assets/32074474/21f86d3c-6b8f-44b5-bb01-3c9a80004d73)
+![img1](https://github.com/willmoreira/Challenge/assets/32074474/21f86d3c-6b8f-44b5-bb01-3c9a80004d73)
 
 TELA 3 (Detalhes do personagem) - É a tela que mostra mais informações do personagem escolhido na tela de listagem de personagens
 
-![img2](https://github.com/willmoreira/StoneChallenge/assets/32074474/72c6dbf9-3a8a-43dc-9980-590479303589)
+![img2](https://github.com/willmoreira/Challenge/assets/32074474/72c6dbf9-3a8a-43dc-9980-590479303589)
 
 # Requisitos
 
@@ -39,7 +39,7 @@ Desafio feito seguindo os requisitos propostos:
  - Usei sempre viewCode para criar componentes visuais
  - Implementei teste unitários e teste de UI nas camadas de View como mostra a imagem a seguir.
 
-![img4](https://github.com/willmoreira/StoneChallenge/assets/32074474/9b930484-bff3-46ba-bdcb-905d29e9dfbd)
+![img4](https://github.com/willmoreira/Challenge/assets/32074474/9b930484-bff3-46ba-bdcb-905d29e9dfbd)
 
  - Implementei validação de internet antes da requisição mostrando para o usuário um alerta e disponibilizando o botão para fazer uma nova requisição.
  - Implementei tratamento de ao voltar da tela de filtro para a tela de listar personagens mostra a lista do início.

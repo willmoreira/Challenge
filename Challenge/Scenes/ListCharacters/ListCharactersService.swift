@@ -11,7 +11,7 @@ protocol ListCharactersServiceProtocol {
     func doRequestListCharacters(
         page: Int, name: String?,
         status: String?,
-        completion: @escaping (Result<CharactersResponse, ApiError>) -> Void
+        completion: @escaping (Result<CharacterListViewModel, ApiError>) -> Void
     )
 }
 
@@ -23,10 +23,9 @@ class ListCharactersService: ListCharactersServiceProtocol {
         page: Int,
         name: String? = nil,
         status: String? = nil,
-        completion: @escaping (Result<CharactersResponse, ApiError>
+        completion: @escaping (Result<CharacterListViewModel, ApiError>
         ) -> Void
     ) {
-
         let nameValid = name ?? ConfigurationStrings.emptyString
         let statusValid = status ?? ConfigurationStrings.emptyString
         let urlString = """
@@ -55,10 +54,30 @@ class ListCharactersService: ListCharactersServiceProtocol {
             }
             do {
                 let decoder = JSONDecoder()
-                let result = try decoder.decode(CharactersResponse.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(result))
+                let response = try decoder.decode(CharactersResponse.self, from: data)
+
+                guard let results = response.results else {
+                    completion(.failure(.noResponse))
+                    return
                 }
+
+                let viewModels: [CharacterCellViewModel] = results.compactMap {
+                    return CharacterCellViewModel(
+                        name: $0.name,
+                        imageURL: $0.image,
+                        status: $0.status.rawValue,
+                        species: $0.species,
+                        origin: $0.origin.name,
+                        location: $0.location.name
+                    )
+                }
+
+                let listViewModel = CharacterListViewModel(
+                    characters: viewModels,
+                    info: response.info
+                )
+
+                DispatchQueue.main.async { completion(.success(listViewModel)) }
             } catch {
                 completion(.failure(.decode))
             }
